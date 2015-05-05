@@ -1,0 +1,18 @@
+extends ./layout
+
+block title
+  title #{title} - shimba.co
+
+block content
+  .content.post
+    .container
+      | !{contents}
+      
+      hr.profile-separator
+      
+      include ./_profile
+      
+      .footer
+        a(href="/")
+          i.fa.fa-angle-left
+          span shimba.co

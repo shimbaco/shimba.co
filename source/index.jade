@@ -1,0 +1,19 @@
+extends ../templates/layout.jade
+
+block title
+  title shimba.co
+
+block content
+  .content.home
+    .container
+      include ../templates/_profile.jade
+      
+      h1 ブログ記事
+      
+      table.posts
+        tbody
+          each post in locals.posts
+            tr
+              th.date= post.date
+              td
+                a.title(href=post.path)= post.title

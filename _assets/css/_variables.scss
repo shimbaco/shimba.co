@@ -9,12 +9,14 @@ $link-color: $primary;
 $link-hover-color: darken($link-color, 15%);
 $link-hover-decoration: none;
 
+$line-height-base: 1.7;
+
 $h1-font-size: 1.75rem;
 $h2-font-size: 1.5rem;
 $h3-font-size: 1.25rem;
 
 $font-family-base: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
-$font-size-base: 1.2rem;
+$font-size-base: 1.1rem;
 
 $headings-font-weight: 300;
 

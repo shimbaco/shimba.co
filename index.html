@@ -1,0 +1,26 @@
+---
+layout: home
+---
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-8 offset-sm-2">
+      <h1>
+        <a href="/">{{ site.title }}</a>
+      </h1>
+
+      <ul class="list-unstyled">
+        {% for post in site.posts %}
+          <li>
+            <span class="mr-3">{{ post.date | date: "%Y-%m-%d" }}</span>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <hr class="my-4">
+
+      {% include about.html %}
+    </div>
+  </div>
+</div>

@@ -1,5 +1,11 @@
+import Layout from '../components/layout'
+
 function HomePage() {
-  return <div>shimbaco</div>
-}
+  return (
+    <Layout>
+      <div>shimbaco</div>
+    </Layout>
+    )
+  }
 
 export default HomePage

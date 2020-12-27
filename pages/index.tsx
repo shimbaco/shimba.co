@@ -1,5 +1,5 @@
-import Layout from '../components/layout'
-import Profile from '../components/profile'
+import Layout from '~components/layout'
+import Profile from '~components/profile'
 
 function HomePage() {
   return (
@@ -7,7 +7,7 @@ function HomePage() {
       <div>shimbaco</div>
       <Profile />
     </Layout>
-    )
-  }
+  )
+}
 
 export default HomePage

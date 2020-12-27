@@ -1,9 +1,9 @@
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 
-import Layout from '../components/layout'
-import markdownToHtml from '../lib/markdownToHtml'
-import { getNoteBySlug, getAllNotes } from '../lib/note'
+import Layout from '~components/layout'
+import markdownToHtml from '~lib/markdownToHtml'
+import { getNoteBySlug, getAllNotes } from '~lib/note'
 
 export default function SlugPage({ note }: any): any {
   const router = useRouter()

@@ -10,6 +10,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "autoprefixer": "^10.1.0",
     "gray-matter": "^4.0.2",
     "next": "^10.0.0",

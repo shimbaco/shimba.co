@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import Link from 'next/link'
+
+import HeaderNavLink from '~components/ui/Link'
 
 export default function Layout({
   children,
@@ -12,28 +13,27 @@ export default function Layout({
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       </Head>
 
-      <div className="container py-4" style={{ maxWidth: '720px' }}>
-        <header>
-          <nav className="justify-content-center nav">
-            <li className="nav-item">
-              <Link href="/">
-                <a className="nav-link">Top</a>
-              </Link>{' '}
-            </li>
+      <div className="container max-w-screen-md mx-auto py-10">
+        <header className="text-center">
+          <h1 className="font-black mb-5 opacity-90 text-5xl text-white">
+            <a href="/">shimbaco</a>
+          </h1>
+          <nav className="flex justify-center">
+            <HeaderNavLink href="/">
+              Top
+            </HeaderNavLink>
 
-            <li className="nav-item">
-              <Link href="/notes">
-                <a className="nav-link">Notes</a>
-              </Link>
-            </li>
+            <HeaderNavLink href="/notes">
+              Notes
+            </HeaderNavLink>
 
-            <li className="nav-item">
-              <Link href="/projects">
-                <a className="nav-link">Projects</a>
-              </Link>
-            </li>
+            <HeaderNavLink href="/projects">
+              Projects
+            </HeaderNavLink>
           </nav>
         </header>
+
+        <hr className="my-10 opacity-50" />
 
         {children}
       </div>

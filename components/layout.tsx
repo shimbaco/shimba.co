@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Link from 'next/link'
 
 export default function Layout({
@@ -6,6 +7,11 @@ export default function Layout({
 }: any) {
   return (
     <>
+      <Head>
+        <title>{title}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      </Head>
+
       <div className="container py-4" style={{ maxWidth: '720px' }}>
         <header>
           <nav className="justify-content-center nav">

@@ -8,13 +8,13 @@ export function getNoteSlugs() {
   return fs.readdirSync(notesDirectory)
 }
 
-export function getNoteBySlug(slug, fields = []) {
+export function getNoteBySlug(slug: string, fields: Array<string> = []): any {
   const realSlug = slug.replace(/\.md$/, '')
   const fullPath = join(notesDirectory, `${realSlug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
-  const items = {}
+  const items: any = {}
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
@@ -33,12 +33,12 @@ export function getNoteBySlug(slug, fields = []) {
   return items
 }
 
-export function getAllNotes(fields = []) {
+export function getAllNotes(fields: Array<string> = []) {
   const slugs = getNoteSlugs()
   const notes = slugs
     .map((slug) => getNoteBySlug(slug, fields))
     // sort notes by date in descending order
-    .sort((note1, note2) => (note1.date > note2.date ? '-1' : '1'))
+    .sort((note1, note2) => (note1.date > note2.date ? -1 : 1))
 
   return notes
 }

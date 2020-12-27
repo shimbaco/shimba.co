@@ -1,17 +1,11 @@
 import Link from 'next/link'
-import Head from 'next/head'
 
 export default function Layout({
   children,
   title = 'shimbaco',
-}) {
+}: any) {
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      </Head>
-
       <div className="container py-4" style={{ maxWidth: '720px' }}>
         <header>
           <nav className="justify-content-center nav">

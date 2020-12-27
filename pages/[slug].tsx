@@ -1,10 +1,11 @@
+import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 
 import Layout from '../components/layout'
 import markdownToHtml from '../lib/markdownToHtml'
 import { getNoteBySlug, getAllNotes } from '../lib/note'
 
-export default function SlugPage({ note }) {
+export default function SlugPage({ note }: any): any {
   const router = useRouter()
   const slug = router.query.slug || []
 
@@ -13,10 +14,10 @@ export default function SlugPage({ note }) {
       <div>slug: {slug}</div>
       <p>{note.content}</p>
     </Layout>
-    )
-  }
+  )
+}
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: any) {
   const note = getNoteBySlug(params.slug, [
     'title',
     'date',

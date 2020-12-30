@@ -4,44 +4,46 @@ import Image from 'next/image'
 
 export default function Profile() {
   return (
-    <footer className="bg-opacity-90 bg-pink-100 p-5 rounded text-black text-center text-opacity-80">
-      <h1 className="font-bold mb-5 text-3xl">
-        Shimba, Koji
-        <div className="text-base text-black text-opacity-60">
+    <footer className="c-profile card text-center">
+      <div className="card-body">
+        <h1 className="card-title">
+          Shimba, Koji
+        </h1>
+        <div className="card-subtitle h3 mb-5 text-muted">
           @shimbaco
         </div>
-      </h1>
 
-      <div className="content-center flex justify-center mb-5 text-gray-900 text-opacity-90">
-        <div className="mx-5" style={{ position: 'relative', top: '2px' }}>
-          <a href="https://annict.jp/@shimbaco" rel="noopener" target="_blank">
-            <Image
-              alt="Annict"
-              className="rounded"
-              height={35}
-              src="/annict.jpg"
-              width={35}
-            />
-          </a>
+        <div className="d-flex justify-content-center mb-5">
+          <div className="mx-5" style={{ position: 'relative', top: '2px' }}>
+            <a href="https://annict.jp/@shimbaco" rel="noopener" target="_blank">
+              <Image
+                alt="Annict"
+                className="rounded"
+                height={35}
+                src="/annict.jpg"
+                width={35}
+              />
+            </a>
+          </div>
+
+          <div className="mx-5">
+            <a className="text-body" href="https://twitter.com/shimbaco" rel="noopener" target="_blank">
+              <FontAwesomeIcon icon={faTwitterSquare} style={{ fontSize: '40px' }} />
+            </a>
+          </div>
+
+          <div className="mx-5">
+            <a className="text-body" href="https://github.com/shimbaco" rel="noopener" target="_blank">
+              <FontAwesomeIcon icon={faGithubSquare} style={{ fontSize: '40px' }} />
+            </a>
+          </div>
         </div>
 
-        <div className="mx-5">
-          <a href="https://twitter.com/shimbaco" rel="noopener" target="_blank">
-            <FontAwesomeIcon icon={faTwitterSquare} style={{ fontSize: '40px' }} />
-          </a>
-        </div>
-
-        <div className="mx-5">
-          <a href="https://github.com/shimbaco" rel="noopener" target="_blank">
-            <FontAwesomeIcon icon={faGithubSquare} style={{ fontSize: '40px' }} />
-          </a>
-        </div>
+        <p className="mb-0">
+          Webアプリケーションを作っています。<br />
+          趣きのあるアニメの聖地を訪れて余韻に浸るのが好き。
+        </p>
       </div>
-
-      <p>
-        Webアプリケーションを作っています。<br />
-        趣きのあるアニメの聖地を訪れて余韻に浸るのが好き。
-      </p>
     </footer>
   )
 }

@@ -13,12 +13,12 @@ export default function Layout({
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       </Head>
 
-      <div className="container max-w-screen-md mx-auto py-10">
+      <div className="container py-5">
         <header className="text-center">
-          <h1 className="font-black mb-5 opacity-90 text-5xl text-white">
-            <a href="/">shimbaco</a>
+          <h1 className="display-1 mb-5">
+            <a className="text-body" href="/">shimbaco</a>
           </h1>
-          <nav className="flex justify-center">
+          <nav className="d-flex justify-content-center">
             <HeaderNavLink href="/">
               Home
             </HeaderNavLink>
@@ -33,7 +33,7 @@ export default function Layout({
           </nav>
         </header>
 
-        <hr className="my-10 opacity-50" />
+        <hr className="my-7" />
 
         {children}
       </div>

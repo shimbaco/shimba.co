@@ -4,7 +4,7 @@ import HeaderNavLink from '~components/ui/Link'
 
 export default function Layout({
   children,
-  title = 'shimbaco',
+  title = 'shimba.co',
 }: any) {
   return (
     <>
@@ -16,7 +16,7 @@ export default function Layout({
       <div className="container py-5">
         <header className="text-center">
           <h1 className="display-1 mb-5">
-            <a className="text-body" href="/">shimbaco</a>
+            <a className="text-body" href="/">shimba.co</a>
           </h1>
           <nav className="d-flex justify-content-center">
             <HeaderNavLink href="/">

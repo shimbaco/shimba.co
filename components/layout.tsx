@@ -20,7 +20,7 @@ export default function Layout({
           </h1>
           <nav className="flex justify-center">
             <HeaderNavLink href="/">
-              Top
+              Home
             </HeaderNavLink>
 
             <HeaderNavLink href="/notes">

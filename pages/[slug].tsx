@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import Layout from '~components/layout'
+import { Layout } from '~components/layout'
 import markdownToHtml from '~lib/markdownToHtml'
 import { getNoteBySlug, getAllNotes } from '~lib/note'
 
@@ -9,7 +9,7 @@ export default function SlugPage({ note }: any): any {
   const slug = router.query.slug || []
 
   return (
-    <Layout>
+    <Layout title={note.title}>
       <div>slug: {slug}</div>
       <p>{note.content}</p>
     </Layout>

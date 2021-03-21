@@ -1,21 +1,21 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithubSquare, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
+import { Icon } from '@chakra-ui/react'
+import { FaGithubSquare, FaTwitterSquare } from 'react-icons/fa'
 import Image from 'next/image'
 
 export default function Profile() {
   return (
     <footer className="c-profile card text-center">
       <div className="card-body">
-        <h1 className="card-title">
-          Shimba, Koji
-        </h1>
-        <div className="card-subtitle h3 mb-5 text-muted">
-          @shimbaco
-        </div>
+        <h1 className="card-title">Shimba, Koji</h1>
+        <div className="card-subtitle h3 mb-5 text-muted">@shimbaco</div>
 
         <div className="d-flex justify-content-center mb-5">
           <div className="mx-5" style={{ position: 'relative', top: '2px' }}>
-            <a href="https://annict.jp/@shimbaco" rel="noopener" target="_blank">
+            <a
+              href="https://annict.jp/@shimbaco"
+              rel="noopener"
+              target="_blank"
+            >
               <Image
                 alt="Annict"
                 className="rounded"
@@ -27,20 +27,31 @@ export default function Profile() {
           </div>
 
           <div className="mx-5">
-            <a className="text-body" href="https://twitter.com/shimbaco" rel="noopener" target="_blank">
-              <FontAwesomeIcon icon={faTwitterSquare} style={{ fontSize: '40px' }} />
+            <a
+              className="text-body"
+              href="https://twitter.com/shimbaco"
+              rel="noopener"
+              target="_blank"
+            >
+              <Icon as={FaTwitterSquare} />
             </a>
           </div>
 
           <div className="mx-5">
-            <a className="text-body" href="https://github.com/shimbaco" rel="noopener" target="_blank">
-              <FontAwesomeIcon icon={faGithubSquare} style={{ fontSize: '40px' }} />
+            <a
+              className="text-body"
+              href="https://github.com/shimbaco"
+              rel="noopener"
+              target="_blank"
+            >
+              <Icon as={FaGithubSquare} />
             </a>
           </div>
         </div>
 
         <p className="mb-0">
-          Webアプリケーションを作っています。<br />
+          Webアプリケーションを作っています。
+          <br />
           趣きのあるアニメの聖地を訪れて余韻に浸るのが好き。
         </p>
       </div>

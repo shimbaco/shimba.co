@@ -1,42 +1,67 @@
+import {
+  Box,
+  Container,
+  Heading,
+  HStack,
+  Link as ChakraLink,
+  LinkProps as ChakraLinkProps,
+  Text,
+} from '@chakra-ui/react'
 import Head from 'next/head'
+import Link from 'next/link'
 
-import HeaderNavLink from '~components/ui/Link'
+type HeaderNavLinkProps = {
+  href: string
+} & ChakraLinkProps
 
-export default function Layout({
+const HeaderNavLink: React.FC<HeaderNavLinkProps> = ({
+  href,
   children,
-  title = 'shimba.co',
-}: any) {
+  ...props
+}) => {
+  return (
+    <Link href={href}>
+      <ChakraLink flexBasis="10%" {...props}>
+        {children}
+      </ChakraLink>
+    </Link>
+  )
+}
+
+type Props = {
+  title: string
+}
+
+export const Layout: React.FC<Props> = ({ children, title }) => {
   return (
     <>
       <Head>
         <title>{title}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
       </Head>
 
-      <div className="container py-5">
-        <header className="text-center">
-          <h1 className="display-1 mb-5">
-            <a className="text-body" href="/">shimba.co</a>
-          </h1>
-          <nav className="d-flex justify-content-center">
-            <HeaderNavLink href="/">
-              Home
-            </HeaderNavLink>
+      <Container centerContent maxW="container.md" py={6}>
+        <Box textAlign="center" w="100%">
+          <Heading size="4xl">
+            <Link href="/">
+              <ChakraLink>shimba.co</ChakraLink>
+            </Link>
+          </Heading>
 
-            <HeaderNavLink href="/notes">
-              Notes
-            </HeaderNavLink>
+          <HStack justifyContent="center" mt={6} spacing={6}>
+            <HeaderNavLink href="/">Home</HeaderNavLink>
 
-            <HeaderNavLink href="/projects">
-              Projects
-            </HeaderNavLink>
-          </nav>
-        </header>
+            <HeaderNavLink href="/notes">Notes</HeaderNavLink>
 
-        <hr className="my-7" />
+            <HeaderNavLink href="/projects">Projects</HeaderNavLink>
+          </HStack>
+        </Box>
 
         {children}
-      </div>
+      </Container>
     </>
   )
 }

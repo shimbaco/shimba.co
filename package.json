@@ -2,7 +2,7 @@
   "name": "shimbaco",
   "private": true,
   "engines": {
-    "node": "14.15.0"
+    "node": "14.17.6"
   },
   "scripts": {
     "dev": "next dev -p 9000",

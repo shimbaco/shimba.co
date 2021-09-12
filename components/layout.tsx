@@ -36,18 +36,28 @@ export const Layout: React.FC<Props> = ({ children, title }) => {
 
       <div>
         <div>
-          <div>
+          <div className="text-8xl text-center">
             <Link href="/">
               <a>shimba.co</a>
             </Link>
           </div>
 
-          <div>
-            <HeaderNavLink href="/">Home</HeaderNavLink>
+          <div className="flex justify-center mt-3 space-x-6">
+            <div>
+              <HeaderNavLink href="/">Home</HeaderNavLink>
+            </div>
 
-            <HeaderNavLink href="/notes">Notes</HeaderNavLink>
+            <div>
+              <HeaderNavLink href="/projects">Projects</HeaderNavLink>
+            </div>
 
-            <HeaderNavLink href="/projects">Projects</HeaderNavLink>
+            <div>
+              <HeaderNavLink href="/notes">Notes</HeaderNavLink>
+            </div>
+
+            <div>
+              <HeaderNavLink href="/about">About</HeaderNavLink>
+            </div>
           </div>
         </div>
 

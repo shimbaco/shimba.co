@@ -1,4 +1,3 @@
-import { Icon } from '@chakra-ui/react'
 import { FaGithubSquare, FaTwitterSquare } from 'react-icons/fa'
 import Image from 'next/image'
 
@@ -33,7 +32,7 @@ export default function Profile() {
               rel="noopener"
               target="_blank"
             >
-              <Icon as={FaTwitterSquare} />
+              <FaTwitterSquare />
             </a>
           </div>
 
@@ -44,7 +43,7 @@ export default function Profile() {
               rel="noopener"
               target="_blank"
             >
-              <Icon as={FaGithubSquare} />
+              <FaGithubSquare />
             </a>
           </div>
         </div>

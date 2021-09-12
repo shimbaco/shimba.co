@@ -1,18 +1,9 @@
-import {
-  Box,
-  Container,
-  Heading,
-  HStack,
-  Link as ChakraLink,
-  LinkProps as ChakraLinkProps,
-  Text,
-} from '@chakra-ui/react'
 import Head from 'next/head'
 import Link from 'next/link'
 
 type HeaderNavLinkProps = {
   href: string
-} & ChakraLinkProps
+}
 
 const HeaderNavLink: React.FC<HeaderNavLinkProps> = ({
   href,
@@ -21,9 +12,9 @@ const HeaderNavLink: React.FC<HeaderNavLinkProps> = ({
 }) => {
   return (
     <Link href={href}>
-      <ChakraLink flexBasis="10%" {...props}>
+      <a>
         {children}
-      </ChakraLink>
+      </a>
     </Link>
   )
 }
@@ -43,25 +34,25 @@ export const Layout: React.FC<Props> = ({ children, title }) => {
         />
       </Head>
 
-      <Container centerContent maxW="container.md" py={6}>
-        <Box textAlign="center" w="100%">
-          <Heading size="4xl">
+      <div>
+        <div>
+          <div>
             <Link href="/">
-              <ChakraLink>shimba.co</ChakraLink>
+              <a>shimba.co</a>
             </Link>
-          </Heading>
+          </div>
 
-          <HStack justifyContent="center" mt={6} spacing={6}>
+          <div>
             <HeaderNavLink href="/">Home</HeaderNavLink>
 
             <HeaderNavLink href="/notes">Notes</HeaderNavLink>
 
             <HeaderNavLink href="/projects">Projects</HeaderNavLink>
-          </HStack>
-        </Box>
+          </div>
+        </div>
 
         {children}
-      </Container>
+      </div>
     </>
   )
 }

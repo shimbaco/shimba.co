@@ -1,4 +1,3 @@
-import { Box, HStack, Link as ChakraLink, Text } from '@chakra-ui/react'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 
@@ -10,25 +9,25 @@ import { getAllNotes } from '~lib/note'
 function HomePage({ notes }: any) {
   return (
     <Layout title="shimba.co">
-      <Box mt="6" w="100%">
+      <div>
         {notes.map((note: any) => {
           return (
-            <HStack key={note.slug} spacing={6}>
-              <Box textAlign="right" w="50%">
-                <Text color="coolGray.500" fontSize="sm">
+            <div className="space-y-6" key={note.slug}>
+              <div>
+                <span>
                   {dayjs(note.publishedAt).format('MMMM D, YYYY')}
-                </Text>
-              </Box>
+                </span>
+              </div>
 
-              <Box w="50%">
+              <div>
                 <Link href={`/${note.slug}`}>
-                  <ChakraLink>{note.title}</ChakraLink>
+                  <a>{note.title}</a>
                 </Link>
-              </Box>
-            </HStack>
+              </div>
+            </div>
           )
         })}
-      </Box>
+      </div>
       <Profile />
     </Layout>
   )

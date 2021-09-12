@@ -1,19 +1,11 @@
-import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import { AppProps } from 'next/app'
 
 import '~styles/globals.scss'
-
-import colors from '~lib/colors'
-
-const theme = extendTheme({
-  colors,
-})
+import 'tailwindcss/tailwind.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <Component {...pageProps} />
   )
 }
 

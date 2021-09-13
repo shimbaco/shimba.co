@@ -9,10 +9,10 @@ import { getAllNotes } from '~lib/note'
 function HomePage({ notes }: any) {
   return (
     <Layout title="shimba.co">
-      <div>
+      <div className="max-w-3xl mx-auto space-y-3">
         {notes.map((note: any) => {
           return (
-            <div className="space-y-6" key={note.slug}>
+            <div key={note.slug}>
               <div>
                 <span>
                   {dayjs(note.publishedAt).format('MMMM D, YYYY')}
@@ -28,6 +28,7 @@ function HomePage({ notes }: any) {
           )
         })}
       </div>
+
       <Profile />
     </Layout>
   )

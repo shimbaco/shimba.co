@@ -11,7 +11,7 @@ export default function SlugPage({ note }: any): any {
   return (
     <Layout title={note.title}>
       <div>slug: {slug}</div>
-      <p>{note.content}</p>
+      <main dangerouslySetInnerHTML={{ __html: note.content }}></main>
     </Layout>
   )
 }

@@ -1,5 +1,7 @@
 .DS_Store
 
 /.devcontainer
+/.env.*.local
+/.env.local
 /.next
 /node_modules

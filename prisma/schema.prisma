@@ -11,9 +11,14 @@ datasource db {
 }
 
 model Post {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  title     String   @db.VarChar(255)
-  content   String?
+  id          Int       @id @default(autoincrement())
+  slug        String    @db.VarChar(255) @unique
+  title       String    @db.VarChar(255) @unique
+  content     String?
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([slug])
+  @@index([publishedAt])
 }

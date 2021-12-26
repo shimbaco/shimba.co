@@ -1,10 +1,9 @@
-import dayjs from 'dayjs'
-import Link from 'next/link'
+import dayjs from 'dayjs';
+import Link from 'next/link';
 
-import { Layout } from '~components/layout'
-import Profile from '~components/profile'
-
-import { getAllNotes } from '~lib/note'
+import { Layout } from '~components/layout';
+import Profile from '~components/profile';
+import prisma from '~lib/prisma';
 
 function HomePage({ notes }: any) {
   return (
@@ -14,9 +13,7 @@ function HomePage({ notes }: any) {
           return (
             <div key={note.slug}>
               <div>
-                <span>
-                  {dayjs(note.publishedAt).format('MMMM D, YYYY')}
-                </span>
+                <span>{dayjs(note.publishedAt).format('MMMM D, YYYY')}</span>
               </div>
 
               <div>
@@ -25,23 +22,27 @@ function HomePage({ notes }: any) {
                 </Link>
               </div>
             </div>
-          )
+          );
         })}
       </div>
 
       <Profile />
     </Layout>
-  )
+  );
 }
 
 export async function getStaticProps({ params }: any) {
-  const notes = getAllNotes(['slug', 'publishedAt', 'title'])
+  const notes = await prisma.post.findMany({
+    where: {
+      publishedAt: { not: null },
+    },
+  });
 
   return {
     props: {
       notes,
     },
-  }
+  };
 }
 
-export default HomePage
+export default HomePage;

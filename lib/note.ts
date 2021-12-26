@@ -4,10 +4,6 @@ import matter from 'gray-matter'
 
 const notesDirectory = join(process.cwd(), '_notes')
 
-export function getNoteSlugs() {
-  return fs.readdirSync(notesDirectory)
-}
-
 export function getNoteBySlug(slug: string, fields: Array<string> = []): any {
   const realSlug = slug.replace(/\.md$/, '')
   const fullPath = join(notesDirectory, `${realSlug}.md`)
@@ -31,14 +27,4 @@ export function getNoteBySlug(slug: string, fields: Array<string> = []): any {
   })
 
   return items
-}
-
-export function getAllNotes(fields: Array<string> = []) {
-  const slugs = getNoteSlugs()
-  const notes = slugs
-    .map((slug) => getNoteBySlug(slug, fields))
-    // sort notes by date in descending order
-    .sort((note1, note2) => (note1.date > note2.date ? -1 : 1))
-
-  return notes
 }

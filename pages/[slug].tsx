@@ -1,53 +1,74 @@
-import { useRouter } from 'next/router'
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
+import { ParsedUrlQuery } from 'querystring';
 
-import { Layout } from '~components/layout'
-import markdownToHtml from '~lib/markdownToHtml'
-import { getNoteBySlug, getAllNotes } from '~lib/note'
+import { Layout } from '~components/layout';
+import markdownToHtml from '~lib/markdownToHtml';
+import prisma, { Post } from '~lib/prisma';
 
-export default function SlugPage({ note }: any): any {
-  const router = useRouter()
-  const slug = router.query.slug || []
-
-  return (
-    <Layout title={note.title}>
-      <div>slug: {slug}</div>
-      <main dangerouslySetInnerHTML={{ __html: note.content }}></main>
-    </Layout>
-  )
+interface IParams extends ParsedUrlQuery {
+  slug: string;
 }
 
-export async function getStaticProps({ params }: any) {
-  const note = getNoteBySlug(params.slug, [
-    'title',
-    'date',
-    'slug',
-    'content',
-    'ogImage',
-    'coverImage',
-  ])
-  const content = await markdownToHtml(note.content || '')
+type Props = {
+  post: Post;
+};
+
+export default function SlugPage({ post }: Props) {
+  const router = useRouter();
+  const slug = router.query.slug || [];
+
+  return (
+    <Layout title={post.title}>
+      <div>slug: {slug}</div>
+      <main dangerouslySetInnerHTML={{ __html: post.content || '' }}></main>
+    </Layout>
+  );
+}
+
+export const getStaticProps: GetStaticProps<Props, IParams> = async ({
+  params,
+}) => {
+  const post = await prisma.post.findFirst({
+    where: {
+      slug: params!.slug,
+      publishedAt: { not: null },
+    },
+  });
+
+  if (!post) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const content = await markdownToHtml(post.content || '');
 
   return {
     props: {
-      note: {
-        ...note,
+      post: {
+        ...post,
         content,
       },
     },
-  }
-}
+  };
+};
 
-export async function getStaticPaths() {
-  const notes = getAllNotes(['slug'])
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = await prisma.post.findMany({
+    where: {
+      publishedAt: { not: null },
+    },
+  });
 
   return {
-    paths: notes.map((note) => {
+    paths: posts.map((post) => {
       return {
         params: {
-          slug: note.slug,
+          slug: post.slug,
         },
-      }
+      };
     }),
     fallback: false,
-  }
-}
+  };
+};

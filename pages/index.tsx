@@ -1,15 +1,20 @@
 import dayjs from 'dayjs';
+import { GetStaticProps } from 'next';
 import Link from 'next/link';
 
 import { Layout } from '~components/layout';
 import Profile from '~components/profile';
-import prisma from '~lib/prisma';
+import prisma, { Post } from '~lib/prisma';
 
-function HomePage({ notes }: any) {
+type Props = {
+  notes: Post[];
+};
+
+function HomePage({ notes }: Props) {
   return (
     <Layout title="shimba.co">
       <div className="max-w-3xl mx-auto space-y-3">
-        {notes.map((note: any) => {
+        {notes.map((note: Post) => {
           return (
             <div key={note.slug}>
               <div>
@@ -31,7 +36,7 @@ function HomePage({ notes }: any) {
   );
 }
 
-export async function getStaticProps({ params }: any) {
+export const getStaticProps: GetStaticProps = async (context) => {
   const notes = await prisma.post.findMany({
     where: {
       publishedAt: { not: null },
@@ -43,6 +48,6 @@ export async function getStaticProps({ params }: any) {
       notes,
     },
   };
-}
+};
 
 export default HomePage;

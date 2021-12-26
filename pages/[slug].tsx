@@ -51,6 +51,7 @@ export const getStaticProps: GetStaticProps<Props, IParams> = async ({
         content,
       },
     },
+    revalidate: 60,
   };
 };
 

@@ -7,23 +7,23 @@ import Profile from '~components/profile';
 import prisma, { Post } from '~lib/prisma';
 
 type Props = {
-  notes: Post[];
+  posts: Post[];
 };
 
-function HomePage({ notes }: Props) {
+function HomePage({ posts }: Props) {
   return (
     <Layout title="shimba.co">
       <div className="max-w-3xl mx-auto space-y-3">
-        {notes.map((note: Post) => {
+        {posts.map((post: Post) => {
           return (
-            <div key={note.slug}>
+            <div key={post.slug}>
               <div>
-                <span>{dayjs(note.publishedAt).format('MMMM D, YYYY')}</span>
+                <span>{dayjs(post.publishedAt).format('MMMM D, YYYY')}</span>
               </div>
 
               <div>
-                <Link href={`/${note.slug}`}>
-                  <a>{note.title}</a>
+                <Link href={`/${post.slug}`}>
+                  <a>{post.title}</a>
                 </Link>
               </div>
             </div>
@@ -37,7 +37,7 @@ function HomePage({ notes }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const notes = await prisma.post.findMany({
+  const posts = await prisma.post.findMany({
     where: {
       publishedAt: { not: null },
     },
@@ -45,7 +45,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      notes,
+      posts,
     },
     revalidate: 60,
   };

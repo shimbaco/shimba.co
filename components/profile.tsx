@@ -1,9 +1,9 @@
-import { FaGithubSquare, FaTwitterSquare } from 'react-icons/fa'
-import Image from 'next/image'
+import { FaGithubSquare, FaTwitterSquare } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function Profile() {
   return (
-    <footer className="c-profile card text-center">
+    <footer className="bg-neutral-800 text-center">
       <div className="card-body">
         <h1 className="card-title">Shimba, Koji</h1>
         <div className="card-subtitle h3 mb-5 text-muted">@shimbaco</div>
@@ -55,5 +55,5 @@ export default function Profile() {
         </p>
       </div>
     </footer>
-  )
+  );
 }

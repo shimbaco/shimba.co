@@ -8,15 +8,6 @@
   box-sizing: border-box;
 }
 
-*:focus {
-  outline: none;
-}
-
-.c-profile {
-  background: rgb(88, 92, 99);
-  background: linear-gradient(
-    150deg,
-    rgba(88, 92, 99, 1) 10%,
-    rgba(109, 112, 117, 1) 100%
-  );
+html {
+  font-size: 18px;
 }

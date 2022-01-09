@@ -3,6 +3,7 @@ import { GetStaticProps } from 'next';
 import Link from 'next/link';
 
 import { Layout } from '~components/layout';
+import NavHeader from '~components/nav-header';
 import Profile from '~components/profile';
 import { Post } from '~lib/constants';
 import { supabase } from '~lib/supabase';
@@ -14,12 +15,16 @@ type Props = {
 function HomePage({ posts }: Props) {
   return (
     <Layout title="shimba.co">
-      <div className="max-w-3xl mx-auto space-y-3">
-        {posts.map((post: Post) => {
-          return (
+      <div className="flex flex-col min-h-screen space-y-3">
+        <NavHeader />
+
+        <div className="grow lg:w-6/12 mx-auto px-3 w-full">
+          {posts.map((post: Post) => (
             <div key={post.slug}>
               <div>
-                <span>{dayjs(post.published_at).format('MMMM D, YYYY')}</span>
+                <span className="text-gray-400">
+                  {dayjs(post.published_at).format('MMMM D, YYYY')}
+                </span>
               </div>
 
               <div>
@@ -28,11 +33,11 @@ function HomePage({ posts }: Props) {
                 </Link>
               </div>
             </div>
-          );
-        })}
-      </div>
+          ))}
+        </div>
 
-      <Profile />
+        <Profile />
+      </div>
     </Layout>
   );
 }

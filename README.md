@@ -1,7 +1,7 @@
 # shimba.co
 
 ```
-$ git clone git@github.com:shimbaco/shimbaco.git
-$ cd shimbaco
+$ git clone git@github.com:shimbaco/homepage.git
+$ cd homepage
 $ npm run dev
 ```

@@ -1,5 +1,5 @@
 {
-  "projectId": "shimbaco",
+  "projectId": "homepage",
   "ports": {
     "api": 54321,
     "db": 54322,

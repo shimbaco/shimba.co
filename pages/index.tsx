@@ -4,7 +4,8 @@ import Link from 'next/link';
 
 import { Layout } from '~components/layout';
 import Profile from '~components/profile';
-import prisma, { Post } from '~lib/prisma';
+import { Post } from '~lib/constants';
+import { supabase } from '~lib/supabase';
 
 type Props = {
   posts: Post[];
@@ -18,7 +19,7 @@ function HomePage({ posts }: Props) {
           return (
             <div key={post.slug}>
               <div>
-                <span>{dayjs(post.publishedAt).format('MMMM D, YYYY')}</span>
+                <span>{dayjs(post.published_at).format('MMMM D, YYYY')}</span>
               </div>
 
               <div>
@@ -37,15 +38,18 @@ function HomePage({ posts }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const posts = await prisma.post.findMany({
-    where: {
-      publishedAt: { not: null },
-    },
-  });
+  const { data: posts, error } = await supabase
+    .from<Post>('posts')
+    .select('slug, title, published_at')
+    .not('published_at', 'is', null);
+
+  if (error) {
+    console.error(error);
+  }
 
   return {
     props: {
-      posts,
+      posts: posts ?? [],
     },
     revalidate: 60,
   };

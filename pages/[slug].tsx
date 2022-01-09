@@ -3,8 +3,9 @@ import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
 
 import { Layout } from '~components/layout';
+import { Post } from '~lib/constants';
 import markdownToHtml from '~lib/markdownToHtml';
-import prisma, { Post } from '~lib/prisma';
+import { supabase } from '~lib/supabase';
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -21,7 +22,7 @@ export default function SlugPage({ post }: Props) {
   return (
     <Layout title={post.title}>
       <div>slug: {slug}</div>
-      <main dangerouslySetInnerHTML={{ __html: post.content || '' }}></main>
+      <main dangerouslySetInnerHTML={{ __html: post.body }}></main>
     </Layout>
   );
 }
@@ -29,12 +30,16 @@ export default function SlugPage({ post }: Props) {
 export const getStaticProps: GetStaticProps<Props, IParams> = async ({
   params,
 }) => {
-  const post = await prisma.post.findFirst({
-    where: {
-      slug: params!.slug,
-      publishedAt: { not: null },
-    },
-  });
+  const { data: post, error } = await supabase
+    .from<Post>('posts')
+    .select('slug, title, body, published_at')
+    .not('published_at', 'is', null)
+    .eq('slug', params!.slug)
+    .single();
+
+  if (error) {
+    console.error(error);
+  }
 
   if (!post) {
     return {
@@ -42,13 +47,13 @@ export const getStaticProps: GetStaticProps<Props, IParams> = async ({
     };
   }
 
-  const content = await markdownToHtml(post.content || '');
+  const body = await markdownToHtml(post.body ?? '');
 
   return {
     props: {
       post: {
         ...post,
-        content,
+        body,
       },
     },
     revalidate: 60,
@@ -56,14 +61,17 @@ export const getStaticProps: GetStaticProps<Props, IParams> = async ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await prisma.post.findMany({
-    where: {
-      publishedAt: { not: null },
-    },
-  });
+  const { data: posts, error } = await supabase
+    .from<Post>('posts')
+    .select('slug, title')
+    .not('published_at', 'is', null);
+
+  if (error) {
+    console.error(error);
+  }
 
   return {
-    paths: posts.map((post) => {
+    paths: (posts ?? []).map((post) => {
       return {
         params: {
           slug: post.slug,

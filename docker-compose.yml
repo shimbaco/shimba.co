@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: shimbaco_development
+      # Access to MySQL from host
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: toor
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./docker/db/data:/var/lib/mysql
+      - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+    # For M1 Mac
+    platform: linux/amd64

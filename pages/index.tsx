@@ -5,8 +5,7 @@ import Link from 'next/link';
 import { Layout } from '~components/layout';
 import NavHeader from '~components/nav-header';
 import Profile from '~components/profile';
-import { Post } from '~lib/constants';
-import { supabase } from '~lib/supabase';
+import prisma, { Post } from '~lib/prisma';
 
 type Props = {
   posts: Post[];
@@ -23,7 +22,7 @@ function HomePage({ posts }: Props) {
             <div key={post.slug}>
               <div>
                 <span className="text-gray-400">
-                  {dayjs(post.published_at).format('MMMM D, YYYY')}
+                  {dayjs(post.publishedAt).format('MMMM D, YYYY')}
                 </span>
               </div>
 
@@ -43,14 +42,11 @@ function HomePage({ posts }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { data: posts, error } = await supabase
-    .from<Post>('posts')
-    .select('slug, title, published_at')
-    .not('published_at', 'is', null);
-
-  if (error) {
-    console.error(error);
-  }
+  const posts = await prisma.post.findMany({
+    where: {
+      publishedAt: { not: null },
+    },
+  });
 
   return {
     props: {

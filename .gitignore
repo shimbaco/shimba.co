@@ -4,9 +4,5 @@
 /.env.*.local
 /.env.local
 /.next
+/docker/db/data
 /node_modules
-
-# Supabase
-**/supabase/.branches
-**/supabase/.temp
-**/supabase/.env

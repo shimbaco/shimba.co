@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id           BigInt    @db.UnsignedBigInt @default(autoincrement()) @id
+  slug         String    @db.VarChar(255) @unique
+  title        String    @db.VarChar(255) @unique
+  body         String?   @db.LongText
+  publishedAt  DateTime? @map("published_at")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @map("updated_at") @updatedAt
+
+  @@map("posts")
+  @@index([slug])
+  @@index([publishedAt])
+}

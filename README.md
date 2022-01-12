@@ -1,8 +1,8 @@
 # shimba.co
 
 ```
-$ supabase start
 $ git clone git@github.com:shimbaco/homepage.git
 $ cd homepage
+$ docker compose up
 $ npm run dev
 ```

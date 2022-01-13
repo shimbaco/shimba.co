@@ -12,7 +12,9 @@ const NavHeaderLink: React.FC<NavHeaderLinkProps> = ({
 }) => {
   return (
     <Link href={href}>
-      <a>{children}</a>
+      <a className="hover:text-slate-800 hover:underline text-slate-600">
+        {children}
+      </a>
     </Link>
   );
 };
@@ -26,7 +28,7 @@ export default function NavHeader() {
         </Link>
       </div>
 
-      <div className="flex justify-center mt-3 space-x-6">
+      <div className="flex justify-center space-x-6">
         <div>
           <NavHeaderLink href="/">Home</NavHeaderLink>
         </div>

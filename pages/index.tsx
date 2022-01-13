@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { Layout } from '~components/layout';
 import NavHeader from '~components/nav-header';
-import Profile from '~components/profile';
+import Footer from '~components/footer';
 import prisma, { Post } from '~lib/prisma';
 
 type Props = {
@@ -14,14 +14,14 @@ type Props = {
 function HomePage({ posts }: Props) {
   return (
     <Layout title="shimba.co">
-      <div className="flex flex-col min-h-screen space-y-3">
+      <div className="flex flex-col min-h-screen pt-8 space-y-4">
         <NavHeader />
 
-        <div className="grow lg:w-6/12 mx-auto px-3 w-full">
+        <div className="grow lg:w-6/12 mx-auto prose px-3 space-y-4 w-full">
           {posts.map((post: Post) => (
             <div key={post.slug}>
               <div>
-                <span className="text-gray-400">
+                <span className="text-gray-500">
                   {dayjs(post.publishedAt).format('MMMM D, YYYY')}
                 </span>
               </div>
@@ -35,7 +35,7 @@ function HomePage({ posts }: Props) {
           ))}
         </div>
 
-        <Profile />
+        <Footer />
       </div>
     </Layout>
   );

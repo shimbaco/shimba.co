@@ -12,6 +12,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@auth0/nextjs-auth0": "^1.7.0",
     "@prisma/client": "^3.7.0",
     "dayjs": "^1.10.7",
     "dotenv-cli": "^4.1.1",

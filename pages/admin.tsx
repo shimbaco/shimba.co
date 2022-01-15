@@ -1,8 +1,8 @@
 import { UserProfile } from '@auth0/nextjs-auth0';
-import Link from 'next/link';
 import React, { ReactElement } from 'react';
 
 import { Layout } from '~components/admin/layout';
+import { Navbar } from '~components/admin/navbar';
 
 type Props = {
   user: UserProfile;
@@ -11,15 +11,7 @@ type Props = {
 function AdminPage({ user }: Props) {
   return (
     <>
-      {user ? (
-        <Link href="/api/auth/logout">
-          <a>Logout</a>
-        </Link>
-      ) : (
-        <Link href="/api/auth/login">
-          <a>Login</a>
-        </Link>
-      )}
+      <Navbar user={user} />
     </>
   );
 }

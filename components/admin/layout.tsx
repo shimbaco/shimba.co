@@ -2,6 +2,8 @@ import { useUser } from '@auth0/nextjs-auth0';
 import Head from 'next/head';
 import React, { ReactElement } from 'react';
 
+import { Content } from '~components/admin/content';
+
 type Props = {
   children: ReactElement;
   title: string;
@@ -24,7 +26,7 @@ export const Layout: React.FC<Props> = ({ children, title }) => {
         />
       </Head>
 
-      {React.cloneElement(children, { user })}
+      <Content user={user}>{children}</Content>
     </>
   );
 };

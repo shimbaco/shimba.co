@@ -9,11 +9,7 @@ type Props = {
 };
 
 function AdminPage({ user }: Props) {
-  return (
-    <>
-      <Navbar user={user} />
-    </>
-  );
+  return <></>;
 }
 
 AdminPage.getLayout = (page: ReactElement) => {

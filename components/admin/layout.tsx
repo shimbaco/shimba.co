@@ -3,6 +3,7 @@ import Head from 'next/head';
 import React, { ReactElement } from 'react';
 
 import { Content } from '~components/admin/content';
+import { Navbar } from '~components/admin/navbar';
 
 type Props = {
   children: ReactElement;
@@ -25,6 +26,8 @@ export const Layout: React.FC<Props> = ({ children, title }) => {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
       </Head>
+
+      <Navbar user={user} />
 
       <Content user={user}>{children}</Content>
     </>

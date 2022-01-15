@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 
 type Props = {
-  user: UserProfile;
+  user: UserProfile | undefined;
 };
 
 type NavbarLinkProps = {

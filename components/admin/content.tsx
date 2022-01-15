@@ -13,9 +13,9 @@ export const Content: React.FC<Props> = ({ children, user }) => {
     return React.cloneElement(children, { user });
   }
 
-  if (user) {
-    return <div>You are not shimbaco.</div>;
+  if (user && !isShimbaco(user)) {
+    return <div className="container mx-auto py-4">You are not shimbaco.</div>;
   }
 
-  return <div>Please login.</div>;
+  return <div className="container mx-auto py-4">Please login.</div>;
 };

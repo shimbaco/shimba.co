@@ -2,8 +2,8 @@ import dayjs from 'dayjs';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 
+import Header from '~components/header';
 import { Layout } from '~components/layout';
-import NavHeader from '~components/nav-header';
 import Footer from '~components/footer';
 import prisma, { Post } from '~lib/prisma';
 
@@ -15,7 +15,7 @@ function HomePage({ posts }: Props) {
   return (
     <Layout title="shimba.co">
       <div className="flex flex-col min-h-screen pt-8 space-y-4">
-        <NavHeader />
+        <Header />
 
         <div className="grow lg:w-6/12 mx-auto prose px-3 space-y-4 w-full">
           {posts.map((post: Post) => (

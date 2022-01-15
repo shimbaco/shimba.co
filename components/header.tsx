@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
 
-type NavHeaderLinkProps = {
+type HeaderLinkProps = {
   href: string;
 };
 
-const NavHeaderLink: React.FC<NavHeaderLinkProps> = ({
+const HeaderLink: React.FC<HeaderLinkProps> = ({
   href,
   children,
   ...props
@@ -19,7 +19,7 @@ const NavHeaderLink: React.FC<NavHeaderLinkProps> = ({
   );
 };
 
-export default function NavHeader() {
+export default function Header() {
   return (
     <>
       <div className="text-8xl text-center">
@@ -30,11 +30,11 @@ export default function NavHeader() {
 
       <div className="flex justify-center space-x-6">
         <div>
-          <NavHeaderLink href="/">Home</NavHeaderLink>
+          <HeaderLink href="/">Home</HeaderLink>
         </div>
 
         <div>
-          <NavHeaderLink href="/projects">Projects</NavHeaderLink>
+          <HeaderLink href="/projects">Projects</HeaderLink>
         </div>
       </div>
     </>

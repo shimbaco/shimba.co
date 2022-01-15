@@ -7,7 +7,7 @@ type Props = {
   title: string;
 };
 
-export const Admin: React.FC<Props> = ({ children, title }) => {
+export const Layout: React.FC<Props> = ({ children, title }) => {
   const { user, error, isLoading } = useUser();
 
   if (isLoading) return <div>Loading...</div>;

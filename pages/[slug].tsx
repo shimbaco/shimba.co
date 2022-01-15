@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
 import React, { ReactElement } from 'react';
 
-import { Application as ApplicationLayout } from '~components/layouts/application';
+import { Layout } from '~components/layout';
 import markdownToHtml from '~lib/markdownToHtml';
 import prisma, { Post } from '~lib/prisma';
 
@@ -28,11 +28,7 @@ function SlugPage({ post }: Props) {
 }
 
 SlugPage.getLayout = (page: ReactElement, { post }: Props) => {
-  return (
-    <ApplicationLayout title={`${post.title} | shimba.co`}>
-      {page}
-    </ApplicationLayout>
-  );
+  return <Layout title={`${post.title} | shimba.co`}>{page}</Layout>;
 };
 
 export const getStaticProps: GetStaticProps<Props, IParams> = async ({

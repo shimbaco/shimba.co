@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
 
-import { Application as ApplicationLayout } from '~components/layouts/application';
+import { Layout } from '~components/layout';
 import prisma, { Post } from '~lib/prisma';
 
 type Props = {
@@ -33,7 +33,7 @@ function HomePage({ posts }: Props) {
 }
 
 HomePage.getLayout = (page: ReactElement, _props: Props) => {
-  return <ApplicationLayout title="shimba.co">{page}</ApplicationLayout>;
+  return <Layout title="shimba.co">{page}</Layout>;
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {

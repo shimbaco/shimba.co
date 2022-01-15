@@ -1,4 +1,4 @@
-import Layout from '~components/layouts/application';
+import Layout from '~components/layout';
 
 function NotesPage() {
   return (

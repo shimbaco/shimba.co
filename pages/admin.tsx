@@ -2,7 +2,7 @@ import { UserProfile } from '@auth0/nextjs-auth0';
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
 
-import { Admin as AdminLayout } from '~components/layouts/admin';
+import { Layout } from '~components/admin/layout';
 
 type Props = {
   user: UserProfile;
@@ -25,7 +25,7 @@ function AdminPage({ user }: Props) {
 }
 
 AdminPage.getLayout = (page: ReactElement) => {
-  return <AdminLayout title="Admin | shimba.co">{page}</AdminLayout>;
+  return <Layout title="Layout | shimba.co">{page}</Layout>;
 };
 
 export default AdminPage;

@@ -8,7 +8,7 @@ type Props = {
   title: string;
 };
 
-export const Application: React.FC<Props> = ({ children, title }) => {
+export const Layout: React.FC<Props> = ({ children, title }) => {
   return (
     <>
       <Head>

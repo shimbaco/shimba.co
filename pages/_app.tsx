@@ -1,14 +1,22 @@
-import { UserProvider } from '@auth0/nextjs-auth0';
+import type { NextPage } from 'next';
 import { AppProps } from 'next/app';
+import { ReactElement, ReactNode } from 'react';
 
 import '~styles/globals.scss';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <UserProvider>
-      <Component {...pageProps} />
-    </UserProvider>
-  );
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout =
+    Component.getLayout || ((page: ReactElement, _props: AppProps) => page);
+
+  return getLayout(<Component {...pageProps} />, pageProps);
 }
 
 export default MyApp;

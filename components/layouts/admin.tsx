@@ -1,23 +1,24 @@
+import { UserProvider } from '@auth0/nextjs-auth0';
 import Head from 'next/head';
-import Link from 'next/link';
 import React from 'react';
 
 type Props = {
   title: string;
 };
 
-export const Layout: React.FC<Props> = ({ children, title }) => {
+export const Admin: React.FC<Props> = ({ children, title }) => {
   return (
     <>
       <Head>
         <title>{title}</title>
+        <meta name="robots" content="nofollow, noindex" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
       </Head>
 
-      {children}
+      <UserProvider>{children}</UserProvider>
     </>
   );
 };

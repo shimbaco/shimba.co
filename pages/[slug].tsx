@@ -1,8 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
+import React, { ReactElement } from 'react';
 
-import { Layout } from '~components/layout';
+import { Application as ApplicationLayout } from '~components/layouts/application';
 import markdownToHtml from '~lib/markdownToHtml';
 import prisma, { Post } from '~lib/prisma';
 
@@ -14,17 +15,25 @@ type Props = {
   post: Post;
 };
 
-export default function SlugPage({ post }: Props) {
+function SlugPage({ post }: Props) {
   const router = useRouter();
   const slug = router.query.slug || [];
 
   return (
-    <Layout title={post.title}>
+    <>
       <div>slug: {slug}</div>
       <main dangerouslySetInnerHTML={{ __html: post.body ?? '' }}></main>
-    </Layout>
+    </>
   );
 }
+
+SlugPage.getLayout = (page: ReactElement, { post }: Props) => {
+  return (
+    <ApplicationLayout title={`${post.title} | shimba.co`}>
+      {page}
+    </ApplicationLayout>
+  );
+};
 
 export const getStaticProps: GetStaticProps<Props, IParams> = async ({
   params,
@@ -73,3 +82,5 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: false,
   };
 };
+
+export default SlugPage;

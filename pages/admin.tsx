@@ -1,7 +1,8 @@
 import { useUser } from '@auth0/nextjs-auth0';
 import Link from 'next/link';
+import React, { ReactElement } from 'react';
 
-import { Layout } from '~components/layout';
+import { Admin as AdminLayout } from '~components/layouts/admin';
 
 function AdminPage() {
   const { user, error, isLoading } = useUser();
@@ -10,7 +11,7 @@ function AdminPage() {
   if (error) return <div>{error.message}</div>;
 
   return (
-    <Layout title="Admin">
+    <>
       {user ? (
         <Link href="/api/auth/logout">
           <a>Logout</a>
@@ -20,8 +21,12 @@ function AdminPage() {
           <a>Login</a>
         </Link>
       )}
-    </Layout>
+    </>
   );
 }
+
+AdminPage.getLayout = (page: ReactElement) => {
+  return <AdminLayout title="Admin | shimba.co">{page}</AdminLayout>;
+};
 
 export default AdminPage;

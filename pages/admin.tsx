@@ -1,15 +1,14 @@
-import { useUser } from '@auth0/nextjs-auth0';
+import { UserProfile } from '@auth0/nextjs-auth0';
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
 
 import { Admin as AdminLayout } from '~components/layouts/admin';
 
-function AdminPage() {
-  const { user, error, isLoading } = useUser();
+type Props = {
+  user: UserProfile;
+};
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>{error.message}</div>;
-
+function AdminPage({ user }: Props) {
   return (
     <>
       {user ? (

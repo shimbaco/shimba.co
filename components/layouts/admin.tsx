@@ -1,11 +1,18 @@
+import { useUser } from '@auth0/nextjs-auth0';
 import Head from 'next/head';
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 type Props = {
+  children: ReactElement;
   title: string;
 };
 
 export const Admin: React.FC<Props> = ({ children, title }) => {
+  const { user, error, isLoading } = useUser();
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
+
   return (
     <>
       <Head>
@@ -17,7 +24,7 @@ export const Admin: React.FC<Props> = ({ children, title }) => {
         />
       </Head>
 
-      {children}
+      {React.cloneElement(children, { user })}
     </>
   );
 };

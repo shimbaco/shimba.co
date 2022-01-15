@@ -1,19 +1,27 @@
-import { UserProfile } from '@auth0/nextjs-auth0';
 import React, { ReactElement } from 'react';
+import useSWR from 'swr';
 
 import { Layout } from '~components/admin/layout';
-import { Navbar } from '~components/admin/navbar';
+import fetcher from '~lib/fetcher';
+import { Post } from '~lib/prisma';
 
-type Props = {
-  user: UserProfile;
-};
+function AdminPage() {
+  const { data: posts, error } = useSWR<Post[]>('/api/posts', fetcher);
 
-function AdminPage({ user }: Props) {
-  return <></>;
+  if (error) {
+    return <div>{error.message}</div>;
+  }
+
+  return (
+    <div className="container mx-auto py-4">
+      {posts &&
+        posts.map((post) => <div key={post.id.toString()}>{post.title}</div>)}
+    </div>
+  );
 }
 
 AdminPage.getLayout = (page: ReactElement) => {
-  return <Layout title="Layout | shimba.co">{page}</Layout>;
+  return <Layout title="Admin | shimba.co">{page}</Layout>;
 };
 
 export default AdminPage;

@@ -19,7 +19,7 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
   );
 };
 
-export default function Header() {
+export const Header: React.FC = () => {
   return (
     <>
       <div className="text-8xl text-center">
@@ -39,4 +39,4 @@ export default function Header() {
       </div>
     </>
   );
-}
+};

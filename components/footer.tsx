@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
 
-export default function Footer() {
+export const Footer: React.FC = () => {
   return (
     <footer className="bg-neutral-800 px-4 py-8 text-center text-neutral-300">
       <Image
@@ -51,4 +52,4 @@ export default function Footer() {
       </p>
     </footer>
   );
-}
+};

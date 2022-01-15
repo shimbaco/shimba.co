@@ -1,0 +1,21 @@
+name: Lint
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.5.1
+        with:
+          node-version: 16.13.1
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Run Linter
+        run: npm run lint

@@ -9,7 +9,8 @@
     "dev:db:migrate": "dotenv -e .env.local -- npx prisma migrate dev",
     "dev:db:push": "dotenv -e .env.local -- npx prisma db push",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^1.7.0",
@@ -31,6 +32,9 @@
     "@types/react-dom": "^17.0.9",
     "autoprefixer": "^10.4.0",
     "babel-plugin-superjson-next": "^0.4.2",
+    "eslint": "8.6.0",
+    "eslint-config-next": "12.0.8",
+    "eslint-config-prettier": "^8.3.0",
     "postcss": "^8.4.5",
     "prettier": "^2.4.0",
     "prisma": "^3.7.0",

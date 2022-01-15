@@ -1,3 +1,4 @@
+import { UserProvider } from '@auth0/nextjs-auth0';
 import type { NextPage } from 'next';
 import { AppProps } from 'next/app';
 import { ReactElement, ReactNode } from 'react';
@@ -16,7 +17,11 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout =
     Component.getLayout || ((page: ReactElement, _props: AppProps) => page);
 
-  return getLayout(<Component {...pageProps} />, pageProps);
+  return (
+    <UserProvider>
+      {getLayout(<Component {...pageProps} />, pageProps)}
+    </UserProvider>
+  );
 }
 
 export default MyApp;

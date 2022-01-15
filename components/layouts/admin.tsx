@@ -1,4 +1,3 @@
-import { UserProvider } from '@auth0/nextjs-auth0';
 import Head from 'next/head';
 import React from 'react';
 
@@ -18,7 +17,7 @@ export const Admin: React.FC<Props> = ({ children, title }) => {
         />
       </Head>
 
-      <UserProvider>{children}</UserProvider>
+      {children}
     </>
   );
 };

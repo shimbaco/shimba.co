@@ -21,7 +21,7 @@ export default function SlugPage({ post }: Props) {
   return (
     <Layout title={post.title}>
       <div>slug: {slug}</div>
-      <main dangerouslySetInnerHTML={{ __html: post.body }}></main>
+      <main dangerouslySetInnerHTML={{ __html: post.body ?? '' }}></main>
     </Layout>
   );
 }

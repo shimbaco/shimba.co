@@ -4,6 +4,10 @@ import { PrismaClient } from '@prisma/client';
 // exhausting your database connection limit.
 // https://pris.ly/d/help/next-js-best-practices
 
+declare global {
+  var prisma: PrismaClient;
+}
+
 let prisma: PrismaClient;
 
 if (process.env.NODE_ENV === 'production') {

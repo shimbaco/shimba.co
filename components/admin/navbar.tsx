@@ -27,8 +27,9 @@ const NavbarLink: React.FC<NavbarLinkProps> = ({
 export const Navbar: React.FC<Props> = ({ user }) => {
   return (
     <div className="bg-slate-900 flex h-[60px] items-center justify-between px-4">
-      <div>
+      <div className="space-x-4">
         <NavbarLink href="/admin">Admin</NavbarLink>
+        <NavbarLink href="/admin/posts/new">New Post</NavbarLink>
       </div>
 
       <div>

@@ -15,6 +15,11 @@ type AppPropsWithLayout = AppProps & {
 };
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  // @ts-ignore
+  BigInt.prototype.toJSON = function () {
+    return this.toString();
+  };
+
   const getLayout =
     Component.getLayout || ((page: ReactElement, _props: AppProps) => page);
 

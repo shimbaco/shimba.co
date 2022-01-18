@@ -1,5 +1,6 @@
 import { UserProfile } from '@auth0/nextjs-auth0';
-import Link from 'next/link';
+import { Box, HStack, Link, Spacer } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import React from 'react';
 
 type Props = {
@@ -16,29 +17,29 @@ const NavbarLink: React.FC<NavbarLinkProps> = ({
   ...props
 }) => {
   return (
-    <Link href={href}>
-      <a className="hover:text-slate-200 hover:underline text-slate-100">
-        {children}
-      </a>
-    </Link>
+    <NextLink href={href}>
+      <Link>{children}</Link>
+    </NextLink>
   );
 };
 
 export const Navbar: React.FC<Props> = ({ user }) => {
   return (
-    <div className="bg-slate-900 flex h-[60px] items-center justify-between px-4">
-      <div className="space-x-4">
+    <HStack bg="gray.800" color="white" px="4" py="2" spacing="6">
+      <HStack spacing={4}>
         <NavbarLink href="/admin">Admin</NavbarLink>
         <NavbarLink href="/admin/posts/new">New Post</NavbarLink>
-      </div>
+      </HStack>
 
-      <div>
+      <Spacer />
+
+      <Box>
         {user ? (
           <NavbarLink href="/api/auth/logout">Logout</NavbarLink>
         ) : (
           <NavbarLink href="/api/auth/login">Login</NavbarLink>
         )}
-      </div>
-    </div>
+      </Box>
+    </HStack>
   );
 };

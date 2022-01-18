@@ -1,3 +1,4 @@
+import { Box, Center, Container } from '@chakra-ui/react';
 import React, { ReactElement } from 'react';
 import useSWR from 'swr';
 
@@ -9,14 +10,16 @@ function AdminPage() {
   const { data: posts, error } = useSWR<Post[]>('/api/posts', fetcher);
 
   if (error) {
-    return <div>{error.message}</div>;
+    return <Box>{error.message}</Box>;
   }
 
   return (
-    <div className="container mx-auto py-4">
-      {posts &&
-        posts.map((post) => <div key={post.id.toString()}>{post.title}</div>)}
-    </div>
+    <Center as="main">
+      <Container maxW="container.md">
+        {posts &&
+          posts.map((post) => <div key={post.id.toString()}>{post.title}</div>)}
+      </Container>
+    </Center>
   );
 }
 

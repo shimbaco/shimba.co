@@ -1,3 +1,4 @@
+import { Box, Center, Container } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
@@ -20,10 +21,12 @@ function SlugPage({ post }: Props) {
   const slug = router.query.slug || [];
 
   return (
-    <>
-      <div>slug: {slug}</div>
-      <main dangerouslySetInnerHTML={{ __html: post.body ?? '' }}></main>
-    </>
+    <Center as="main">
+      <Container maxW="container.md">
+        <Box>slug: {slug}</Box>
+        <Box dangerouslySetInnerHTML={{ __html: post.body ?? '' }}></Box>
+      </Container>
+    </Center>
   );
 }
 

@@ -1,55 +1,82 @@
+import { Box, Center, chakra, HStack, Link, Text } from '@chakra-ui/react';
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
 
+const ChakraNextImage = chakra(Image);
+
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-neutral-800 px-4 py-8 text-center text-neutral-300">
-      <Image
-        alt="@shimbaco"
-        className="rounded-full"
-        height={100}
-        src="/shimbaco.jpg"
-        width={100}
-      />
+    <Box
+      as="footer"
+      bgColor="gray.700"
+      color="white"
+      px="4"
+      py="8"
+      textAlign="center"
+    >
+      <Center>
+        <Box height="100px" width="100px" position="relative">
+          <ChakraNextImage
+            alt="@shimbaco"
+            height={100}
+            layout="fill"
+            rounded="full"
+            src="/shimbaco.jpg"
+            width={100}
+          />
+        </Box>
+      </Center>
 
-      <div>
-        <div className="text-4xl">Shimba, Koji</div>
-        <div className="text-xl text-neutral-400">@shimbaco</div>
-      </div>
+      <Box mt="2">
+        <Text fontSize="4xl" fontWeight="bold" lineHeight="2.5rem">
+          Shimba, Koji
+        </Text>
 
-      <div className="flex justify-center mt-4 space-x-4">
-        <Link href="https://annict.jp/@shimbaco">
-          <a className="p-[2px]" rel="noopener" target="_blank">
-            <Image
-              alt="Annict"
-              className="rounded"
-              height={30}
-              src="/annict.jpg"
-              width={30}
-            />
-          </a>
+        <Text color="gray.300" fontSize="xl" fontWeight="semibold">
+          @shimbaco
+        </Text>
+      </Box>
+
+      <HStack justify="center" mt="4" spacing="4">
+        <Link
+          display="inline-block"
+          height="30px"
+          href="https://annict.jp/@shimbaco"
+          position="relative"
+          rel="noopener"
+          target="_blank"
+          width="30px"
+        >
+          <ChakraNextImage
+            alt="Annict"
+            borderRadius="sm"
+            height={30}
+            layout="fill"
+            src="/annict.jpg"
+            width={30}
+          />
         </Link>
 
-        <Link href="https://twitter.com/shimbaco">
-          <a className="text-[#1DA1F2]" rel="noopener" target="_blank">
-            <FaTwitter size={35} />
-          </a>
+        <Link
+          href="https://twitter.com/shimbaco"
+          color="#1DA1F2"
+          rel="noopener"
+          target="_blank"
+        >
+          <FaTwitter size={30} />
         </Link>
 
-        <Link href="https://github.com/shimbaco">
-          <a rel="noopener" target="_blank">
-            <FaGithub size={35} />
-          </a>
+        <Link href="https://github.com/shimbaco" rel="noopener" target="_blank">
+          <FaGithub size={30} />
         </Link>
-      </div>
+      </HStack>
 
-      <p className="mt-4">
+      <Text mt="4">
         個人でWebサービスを運営したりしているソフトウェアエンジニアです。
         <br />
         趣きのあるアニメの聖地を訪れるのが好き。
-      </p>
-    </footer>
+      </Text>
+    </Box>
   );
 };

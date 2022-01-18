@@ -1,4 +1,5 @@
 import { UserProvider } from '@auth0/nextjs-auth0';
+import { ChakraProvider } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { AppProps } from 'next/app';
 import { ReactElement, ReactNode } from 'react';
@@ -19,7 +20,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <UserProvider>
-      {getLayout(<Component {...pageProps} />, pageProps)}
+      <ChakraProvider>
+        {getLayout(<Component {...pageProps} />, pageProps)}
+      </ChakraProvider>
     </UserProvider>
   );
 }

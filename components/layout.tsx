@@ -1,3 +1,4 @@
+import { Spacer, Stack } from '@chakra-ui/react';
 import Head from 'next/head';
 import React from 'react';
 
@@ -20,11 +21,14 @@ export const Layout: React.FC<Props> = ({ children, title }) => {
         />
       </Head>
 
-      <div className="flex flex-col min-h-screen pt-8 space-y-4">
-        <Header />
-        {children}
+      <Stack minH="100vh">
+        <Stack spacing="6">
+          <Header />
+          {children}
+        </Stack>
+        <Spacer />
         <Footer />
-      </div>
+      </Stack>
     </>
   );
 };

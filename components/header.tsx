@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import { Box, Center, HStack, Link } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import React from 'react';
 
 type HeaderLinkProps = {
@@ -11,32 +12,39 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
   ...props
 }) => {
   return (
-    <Link href={href}>
-      <a className="hover:text-slate-800 hover:underline text-slate-600">
+    <NextLink href={href}>
+      <Link fontWeight="bold" textTransform="uppercase">
         {children}
-      </a>
-    </Link>
+      </Link>
+    </NextLink>
   );
 };
 
 export const Header: React.FC = () => {
   return (
-    <>
-      <div className="text-8xl text-center">
-        <Link href="/">
-          <a>shimba.co</a>
-        </Link>
-      </div>
+    <Box as="header" mt="6">
+      <Center>
+        <NextLink href="/">
+          <Link
+            color="blue.900"
+            fontSize="8xl"
+            fontWeight="bold"
+            lineHeight="1"
+          >
+            shimba.co
+          </Link>
+        </NextLink>
+      </Center>
 
-      <div className="flex justify-center space-x-6">
-        <div>
+      <HStack justify="center" mt="4" spacing="6">
+        <Box>
           <HeaderLink href="/">Home</HeaderLink>
-        </div>
+        </Box>
 
-        <div>
+        <Box>
           <HeaderLink href="/projects">Projects</HeaderLink>
-        </div>
-      </div>
-    </>
+        </Box>
+      </HStack>
+    </Box>
   );
 };

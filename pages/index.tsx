@@ -1,6 +1,7 @@
+import { Box, Center, Container, Link, Stack, Text } from '@chakra-ui/react';
 import dayjs from 'dayjs';
 import { GetStaticProps } from 'next';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import React, { ReactElement } from 'react';
 
 import { Layout } from '~components/layout';
@@ -12,23 +13,27 @@ type Props = {
 
 function HomePage({ posts }: Props) {
   return (
-    <div className="grow lg:w-6/12 mx-auto prose px-3 space-y-4 w-full">
-      {posts.map((post: Post) => (
-        <div key={post.slug}>
-          <div>
-            <span className="text-gray-500">
-              {dayjs(post.publishedAt).format('MMMM D, YYYY')}
-            </span>
-          </div>
+    <Center as="main">
+      <Container maxW="container.md">
+        <Stack spacing="4">
+          {posts.map((post: Post) => (
+            <Box key={post.slug}>
+              <Box>
+                <Text color="gray.700" fontSize="sm">
+                  {dayjs(post.publishedAt).format('MMMM D, YYYY')}
+                </Text>
+              </Box>
 
-          <div>
-            <Link href={`/${post.slug}`}>
-              <a>{post.title}</a>
-            </Link>
-          </div>
-        </div>
-      ))}
-    </div>
+              <Box>
+                <NextLink href={`/${post.slug}`}>
+                  <Link fontWeight="semibold">{post.title}</Link>
+                </NextLink>
+              </Box>
+            </Box>
+          ))}
+        </Stack>
+      </Container>
+    </Center>
   );
 }
 

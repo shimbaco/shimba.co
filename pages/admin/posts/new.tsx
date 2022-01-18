@@ -1,3 +1,4 @@
+import { Center, Container } from '@chakra-ui/react';
 import React, { ReactElement } from 'react';
 
 import { Layout } from '~components/admin/layout';
@@ -5,9 +6,11 @@ import { PostForm } from '~components/admin/post-form';
 
 function AdminPostsNewPage() {
   return (
-    <div className="container mx-auto py-4">
-      <PostForm />
-    </div>
+    <Center as="main">
+      <Container maxW="container.md">
+        <PostForm />
+      </Container>
+    </Center>
   );
 }
 

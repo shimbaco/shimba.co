@@ -4,47 +4,65 @@ import {
   FormErrorMessage,
   FormLabel,
   Input,
+  Textarea,
+  VStack,
 } from '@chakra-ui/react';
+import { yupResolver } from '@hookform/resolvers/yup';
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import * as yup from 'yup';
 
 import { Post } from '~lib/prisma';
+import { postInputsSchema } from '~lib/schemas';
+import { PostInputs } from '~lib/types';
 
 type Props = {
+  onSubmit: SubmitHandler<PostInputs>;
   post?: Post;
 };
-type Inputs = Pick<Post, 'title' | 'body' | 'slug' | 'publishedAt'>;
 
-export const PostForm: React.FC<Props> = ({ post }) => {
+export const PostForm: React.FC<Props> = ({ onSubmit, post }) => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors, isSubmitting },
-  } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
-
-  console.log(watch('title'));
-
+  } = useForm<PostInputs>({ resolver: yupResolver(postInputsSchema) });
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <FormControl isInvalid={!!errors.title}>
-        <FormLabel htmlFor="title">Title</FormLabel>
-        <Input
-          id="title"
-          placeholder="Title"
-          {...register('title', {
-            required: 'This is required',
-          })}
-        />
-        <FormErrorMessage>
-          {errors.title && errors.title.message}
-        </FormErrorMessage>
-      </FormControl>
+      <VStack spacing="4">
+        <FormControl isInvalid={!!errors.title} isRequired>
+          <FormLabel htmlFor="title">Title</FormLabel>
+          <Input id="title" {...register('title')} />
+          <FormErrorMessage>{errors.title?.message}</FormErrorMessage>
+        </FormControl>
 
-      <Button colorScheme="teal" isLoading={isSubmitting} mt="4" type="submit">
-        Save
-      </Button>
+        <FormControl isInvalid={!!errors.body}>
+          <FormLabel htmlFor="body">Body</FormLabel>
+          <Textarea id="body" resize="vertical" size="lg" />
+          <FormErrorMessage>{errors.body?.message}</FormErrorMessage>
+        </FormControl>
+
+        <FormControl isInvalid={!!errors.slug} isRequired>
+          <FormLabel htmlFor="slug">Slug</FormLabel>
+          <Input id="slug" {...register('slug')} />
+          <FormErrorMessage>{errors.slug?.message}</FormErrorMessage>
+        </FormControl>
+
+        <FormControl isInvalid={!!errors.publishedAt}>
+          <FormLabel htmlFor="publishedAt">Published At</FormLabel>
+          <Input id="publishedAt" type="datetime-local" />
+          <FormErrorMessage>{errors.publishedAt?.message}</FormErrorMessage>
+        </FormControl>
+
+        <Button
+          colorScheme="teal"
+          isLoading={isSubmitting}
+          mt="4"
+          type="submit"
+        >
+          Submit
+        </Button>
+      </VStack>
     </form>
   );
 };

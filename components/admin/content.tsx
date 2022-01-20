@@ -1,4 +1,5 @@
 import { UserProfile } from '@auth0/nextjs-auth0';
+import { Center, Container, Text } from '@chakra-ui/react';
 import React, { ReactElement } from 'react';
 
 import { isShimbaco } from '~lib/auth';
@@ -14,8 +15,20 @@ export const Content: React.FC<Props> = ({ children, user }) => {
   }
 
   if (user && !isShimbaco(user)) {
-    return <div className="container mx-auto py-4">You are not shimbaco.</div>;
+    return (
+      <Center as="main">
+        <Container maxW="container.md" py="4">
+          <Text>You are not shimbaco.</Text>
+        </Container>
+      </Center>
+    );
   }
 
-  return <div className="container mx-auto py-4">Please login.</div>;
+  return (
+    <Center as="main">
+      <Container maxW="container.md" py="4">
+        <Text>Please login.</Text>
+      </Container>
+    </Center>
+  );
 };

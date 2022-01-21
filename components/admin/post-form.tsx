@@ -8,9 +8,9 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { yupResolver } from '@hookform/resolvers/yup';
-import React from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import * as yup from 'yup';
+import dayjs from 'dayjs';
+import React, { useEffect, useState } from 'react';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
 import { Post } from '~lib/prisma';
 import { postInputsSchema } from '~lib/schemas';
@@ -23,10 +23,22 @@ type Props = {
 
 export const PostForm: React.FC<Props> = ({ onSubmit, post }) => {
   const {
-    register,
-    handleSubmit,
+    control,
     formState: { errors, isSubmitting },
+    handleSubmit,
+    register,
+    setValue,
   } = useForm<PostInputs>({ resolver: yupResolver(postInputsSchema) });
+  const [publishedAt, setPublishedAt] = useState('');
+
+  useEffect(() => {
+    setValue('title', post?.title ?? '');
+    setValue('body', post?.body ?? '');
+    setValue('slug', post?.slug ?? '');
+    setValue('publishedAt', post?.publishedAt ?? null);
+    setPublishedAt(dayjs(post?.publishedAt).format('YYYY-MM-DDTHH:mm'));
+  }, [post]);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <VStack spacing="4">
@@ -38,7 +50,12 @@ export const PostForm: React.FC<Props> = ({ onSubmit, post }) => {
 
         <FormControl isInvalid={!!errors.body}>
           <FormLabel htmlFor="body">Body</FormLabel>
-          <Textarea id="body" resize="vertical" size="lg" />
+          <Textarea
+            id="body"
+            resize="vertical"
+            size="lg"
+            {...register('body')}
+          />
           <FormErrorMessage>{errors.body?.message}</FormErrorMessage>
         </FormControl>
 
@@ -50,7 +67,26 @@ export const PostForm: React.FC<Props> = ({ onSubmit, post }) => {
 
         <FormControl isInvalid={!!errors.publishedAt}>
           <FormLabel htmlFor="publishedAt">Published At</FormLabel>
-          <Input id="publishedAt" type="datetime-local" />
+          <Controller
+            control={control}
+            name="publishedAt"
+            render={({ field: { onChange } }) => (
+              <Input
+                defaultValue={publishedAt}
+                id="publishedAt"
+                onFocus={(e) => {
+                  // A clear button on Chrome's picker component does not fire onChange event on first load.
+                  // Instead of onChange, use onFocus to reset value when the clear button was clicked.
+                  if (!e.target.value) {
+                    return onChange(null);
+                  }
+
+                  return onChange(e);
+                }}
+                type="datetime-local"
+              />
+            )}
+          />
           <FormErrorMessage>{errors.publishedAt?.message}</FormErrorMessage>
         </FormControl>
 

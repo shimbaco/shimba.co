@@ -11,25 +11,27 @@ export default async function handle(
   res: NextApiResponse
 ) {
   if (req.method === 'GET') {
-    await handleGet(res);
-  } else if (req.method === 'POST') {
-    await handlePost(req, res);
+    await handleGet(req, res);
+  } else if (req.method === 'PATCH') {
+    await handlePatch(req, res);
   } else {
     res.status(404).json({ message: 'Not Found' });
   }
 }
 
-async function handleGet(res: NextApiResponse) {
-  const posts = await prisma.post.findMany({
-    orderBy: {
-      publishedAt: 'desc',
+async function handleGet(req: NextApiRequest, res: NextApiResponse) {
+  const { postId } = req.query;
+  const post = await prisma.post.findFirst({
+    where: {
+      id: Number(postId),
     },
   });
 
-  res.json(posts);
+  res.json(post);
 }
 
-async function handlePost(req: NextApiRequest, res: NextApiResponse) {
+async function handlePatch(req: NextApiRequest, res: NextApiResponse) {
+  const { postId } = req.query;
   const session = getSession(req, res);
 
   if (!session || !isShimbaco(session.user)) {
@@ -47,11 +49,12 @@ async function handlePost(req: NextApiRequest, res: NextApiResponse) {
       publishedAt,
     });
 
-    const result = await prisma.post.create({
+    const result = await prisma.post.update({
+      where: { id: Number(postId) },
       data: post,
     });
 
-    res.status(201).json({});
+    res.status(204).json({});
   } catch (error) {
     console.error(error);
 

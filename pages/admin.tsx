@@ -1,4 +1,15 @@
-import { Box, Center, Container } from '@chakra-ui/react';
+import {
+  Box,
+  Center,
+  Container,
+  HStack,
+  Link,
+  Stack,
+  Tag,
+  Text,
+} from '@chakra-ui/react';
+import dayjs from 'dayjs';
+import NextLink from 'next/link';
 import React, { ReactElement } from 'react';
 import useSWR from 'swr';
 
@@ -15,9 +26,35 @@ function AdminPage() {
 
   return (
     <Center as="main">
-      <Container maxW="container.md">
-        {posts &&
-          posts.map((post) => <div key={post.id.toString()}>{post.title}</div>)}
+      <Container maxW="container.md" py="4">
+        <Stack spacing="4">
+          {posts &&
+            posts.map((post) => (
+              <Box key={post.id.toString()}>
+                <Box>
+                  {post.publishedAt ? (
+                    <Text color="gray.700" fontSize="sm">
+                      {dayjs(post.publishedAt).format('MMMM D, YYYY')}
+                    </Text>
+                  ) : (
+                    <Tag fontWeight="bold" size="sm">
+                      Draft
+                    </Tag>
+                  )}
+                </Box>
+
+                <Link href={`/${post.slug}`} fontWeight="bold" target="_blank">
+                  {post.title}
+                </Link>
+
+                <HStack>
+                  <NextLink href={`/admin/posts/${post.id}/edit`}>
+                    <Link fontSize="sm">Edit</Link>
+                  </NextLink>
+                </HStack>
+              </Box>
+            ))}
+        </Stack>
       </Container>
     </Center>
   );

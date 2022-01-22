@@ -1,7 +1,7 @@
 # shimba.co
 
 ```
-$ git clone git@github.com:shimbaco/homepage.git
-$ cd homepage
+$ git clone git@github.com:shimbaco/shimba.co.git
+$ cd shimba.co
 $ docker compose up
 ```

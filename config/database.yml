@@ -9,12 +9,12 @@ default: &default
 
 development:
   <<: *default
-  database: homepage_development
+  database: shimbaco_development
 
 test:
   <<: *default
-  database: homepage_test
+  database: shimbaco_test
 
 production:
   <<: *default
-  database: homepage_production
+  database: shimbaco_production

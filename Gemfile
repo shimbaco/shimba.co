@@ -6,6 +6,7 @@ ruby "3.1.0"
 gem "rails", "~> 7.0.0"
 
 gem "bootsnap", require: false
+gem "cssbundling-rails"
 gem "importmap-rails"
 gem "pg"
 gem "propshaft"

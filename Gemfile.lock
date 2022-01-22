@@ -88,9 +88,6 @@ GEM
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     io-wait (0.2.1)
-    jbuilder (2.11.5)
-      actionview (>= 5.0.0)
-      activesupport (>= 5.0.0)
     loofah (2.13.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -215,7 +212,6 @@ DEPENDENCIES
   bootsnap
   dotenv-rails
   importmap-rails
-  jbuilder
   pg
   propshaft
   pry-rails

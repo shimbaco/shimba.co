@@ -17,6 +17,7 @@ gem "turbo-rails"
 group :development, :test do
   gem "dotenv-rails"
   gem "pry-rails"
+  gem "rubocop-rails", require: false
   gem "standard"
 end
 

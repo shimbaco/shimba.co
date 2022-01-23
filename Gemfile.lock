@@ -182,6 +182,10 @@ GEM
     rubocop-performance (1.13.2)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
+    rubocop-rails (2.13.2)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.7.0, < 2.0)
     ruby-progressbar (1.11.0)
     standard (1.7.0)
       rubocop (= 1.25.0)
@@ -220,6 +224,7 @@ DEPENDENCIES
   pry-rails
   puma
   rails (~> 7.0.0)
+  rubocop-rails
   standard
   stimulus-rails
   turbo-rails

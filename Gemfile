@@ -13,6 +13,7 @@ gem "propshaft"
 gem "puma"
 gem "stimulus-rails"
 gem "turbo-rails"
+gem "view_component"
 
 group :development, :test do
   gem "dotenv-rails"

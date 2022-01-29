@@ -1,0 +1,13 @@
+Admin
+
+<% if shimbaco_signed_in? %>
+  <%= button_to "Logout", auth0_path, class: "btn btn-primary", data: { turbo: "false" }, method: :delete %>
+<% elsif user_signed_in? %>
+  <div class="alert alert-danger">
+    You are not shimbaco.
+  </div>
+  <%= button_to "Logout", auth0_path, class: "btn btn-primary", data: { turbo: "false" }, method: :delete %>
+<% else %>
+  <%= button_to "Login", auth0_path, class: "btn btn-primary", data: { turbo: "false" }, method: :post %>
+<% end %>
+

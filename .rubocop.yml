@@ -11,6 +11,3 @@ AllCops:
     - node_modules/**/*
     - public/**/*
     - vendor/**/*
-
-Rails:
-  Enabled: true

@@ -7,14 +7,12 @@ gem "rails", "~> 7.0.0"
 
 gem "bootsnap", require: false
 gem "cssbundling-rails"
-gem "importmap-rails"
+gem "jsbundling-rails"
 gem "omniauth-auth0"
 gem "omniauth-rails_csrf_protection"
 gem "pg"
 gem "propshaft"
 gem "puma"
-gem "stimulus-rails"
-gem "turbo-rails"
 gem "view_component"
 
 group :development, :test do

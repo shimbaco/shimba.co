@@ -110,10 +110,9 @@ GEM
     hashie (5.0.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
-    importmap-rails (1.0.2)
-      actionpack (>= 6.0.0)
-      railties (>= 6.0.0)
     io-wait (0.2.1)
+    jsbundling-rails (1.0.0)
+      railties (>= 6.0.0)
     jwt (2.3.0)
     loofah (2.13.0)
       crass (~> 1.0.2)
@@ -274,7 +273,7 @@ DEPENDENCIES
   bootsnap
   cssbundling-rails
   dotenv-rails
-  importmap-rails
+  jsbundling-rails
   omniauth-auth0
   omniauth-rails_csrf_protection
   pg

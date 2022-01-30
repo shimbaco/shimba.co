@@ -1,5 +1,9 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "@hotwired/turbo-rails"
+import { Application } from "@hotwired/stimulus"
+import * as Turbo from "@hotwired/turbo"
 import * as bootstrap from "bootstrap"
 
-import "controllers"
+import HelloController from './controllers/hello_controller'
+
+window.Stimulus = Application.start()
+
+Stimulus.register("hello", HelloController)

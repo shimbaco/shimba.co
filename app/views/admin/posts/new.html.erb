@@ -27,7 +27,12 @@
 
   <div class="mb-3">
     <%= f.label :body, class: "form-label" %>
-    <%= f.text_area :body, class: "form-control" %>
+    <div
+      data-controller="editor"
+    >
+      <div data-editor-target="slate"></div>
+      <%= f.text_area :body, class: "d-none form-control", data: { "editor-target": "textarea" } %>
+    </div>
   </div>
 
   <div class="mb-3">

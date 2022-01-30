@@ -9,10 +9,7 @@ export default class extends Controller {
   static targets = ['slate', 'textarea'];
 
   initialize() {
-    console.log('initialize!');
-
     eventBus.$on('editor:changed', (val) => {
-      console.log('changed!', val.body);
       this.textareaTarget.value = val.body;
     });
   }

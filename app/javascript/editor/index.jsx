@@ -25,12 +25,10 @@ export const Editor = () => {
   );
 
   return (
-    // Add the editable component inside the context.
     <Slate
       editor={editor}
       value={value}
       onChange={(newNodes) => {
-        console.log('newNodes: ', newNodes);
         emitBody(newNodes);
       }}
     >

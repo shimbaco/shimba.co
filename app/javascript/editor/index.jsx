@@ -5,14 +5,16 @@ import { Slate, Editable, withReact } from 'slate-react';
 
 import eventBus from '../lib/event-bus';
 
-export const Editor = () => {
+export const Editor = ({ content }) => {
   const [editor] = useState(() => withReact(createEditor()));
-  const [value, _setValue] = useState([
-    {
-      type: 'paragraph',
-      children: [{ text: 'A line of text in a paragraph.' }],
-    },
-  ]);
+  const [value, _setValue] = useState(
+    content?.split('\n').map((text) => {
+      return {
+        type: 'paragraph',
+        children: [{ text }],
+      };
+    }),
+  );
 
   const emitBody = useCallback(
     debounce((nodes) => {

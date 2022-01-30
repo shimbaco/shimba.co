@@ -7,6 +7,9 @@ import eventBus from '../lib/event-bus';
 
 export default class extends Controller {
   static targets = ['slate', 'textarea'];
+  static values = {
+    content: String,
+  };
 
   initialize() {
     eventBus.$on('editor:changed', (val) => {
@@ -15,6 +18,6 @@ export default class extends Controller {
   }
 
   connect() {
-    ReactDOM.render(<Editor />, this.slateTarget);
+    ReactDOM.render(<Editor content={this.contentValue} />, this.slateTarget);
   }
 }

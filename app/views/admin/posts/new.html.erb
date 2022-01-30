@@ -1,0 +1,39 @@
+<%= form_with model: @post_form, url: admin_post_list_path do |f| %>
+  <% if f.object.errors.any? %>
+    <div class="alert alert-danger">
+      <div class="alert-heading h4">
+        Error
+      </div>
+
+      <ul>
+        <% f.object.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= f.label :slug, class: "form-label" %>
+    <%= f.text_field :slug, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :title, class: "form-label" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :body, class: "form-label" %>
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :published_at, class: "form-label" %>
+    <%= f.datetime_field :published_at, class: "form-control" %>
+  </div>
+
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

@@ -2,6 +2,7 @@ Admin
 
 <% if shimbaco_signed_in? %>
   <%= button_to "Logout", auth0_path, class: "btn btn-primary", data: { turbo: "false" }, method: :delete %>
+  <%= link_to "New Post", admin_new_post_path %>
 <% elsif user_signed_in? %>
   <div class="alert alert-danger">
     You are not shimbaco.

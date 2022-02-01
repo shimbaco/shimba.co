@@ -15,7 +15,7 @@
     "tiny-emitter": "^2.1.0"
   },
   "scripts": {
-    "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules",
+    "build:css": "sass app/assets/stylesheets/application.scss:./app/assets/builds/application.css app/assets/stylesheets/admin.scss:./app/assets/builds/admin.css --no-source-map --load-path=node_modules",
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --loader:.js=jsx --outdir=app/assets/builds"
   },
   "devDependencies": {

@@ -3,7 +3,7 @@
 class Admin::PostsController < ActionController::Base
   include Authenticatable
 
-  layout "application"
+  layout "admin"
 
   def new
     authenticate_user!

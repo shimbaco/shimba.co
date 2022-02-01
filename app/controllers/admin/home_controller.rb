@@ -3,5 +3,5 @@
 class Admin::HomeController < ActionController::Base
   include Authenticatable
 
-  layout "application"
+  layout "admin"
 end

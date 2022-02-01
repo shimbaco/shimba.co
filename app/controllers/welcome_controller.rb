@@ -1,4 +1,5 @@
 # frozen_string_literal: true
 
-class WelcomeController < ApplicationController
+class WelcomeController < ActionController::Base
+  layout "application"
 end

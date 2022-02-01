@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-class Admin::PostsController < ApplicationController
+class Admin::PostsController < ActionController::Base
   include Authenticatable
+
+  layout "application"
 
   def new
     authenticate_user!

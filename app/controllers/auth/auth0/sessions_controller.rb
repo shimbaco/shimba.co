@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Auth::Auth0::SessionsController < ApplicationController
+class Auth::Auth0::SessionsController < ActionController::Base
   include Authenticatable
 
   def destroy

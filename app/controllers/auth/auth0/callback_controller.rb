@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Auth::Auth0::CallbackController < ApplicationController
+class Auth::Auth0::CallbackController < ActionController::Base
   include Authenticatable
 
   def show

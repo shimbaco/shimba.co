@@ -11,3 +11,6 @@ AllCops:
     - node_modules/**/*
     - public/**/*
     - vendor/**/*
+
+Rails/MatchRoute:
+  Enabled: false

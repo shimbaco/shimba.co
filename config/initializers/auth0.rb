@@ -6,9 +6,9 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     ENV.fetch("SHIMBACO_AUTH0_CLIENT_ID"),
     ENV.fetch("SHIMBACO_AUTH0_CLIENT_SECRET"),
     ENV.fetch("SHIMBACO_AUTH0_DOMAIN"),
-    callback_path: '/auth/auth0/callback',
+    callback_path: "/auth/auth0/callback",
     authorize_params: {
-      scope: 'openid email'
+      scope: "openid email"
     }
   )
 end

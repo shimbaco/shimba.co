@@ -18,7 +18,7 @@ module Auth::Auth0::Sessions
         client_id: ENV.fetch("SHIMBACO_AUTH0_CLIENT_ID")
       }
 
-      URI::HTTPS.build(host: ENV.fetch("SHIMBACO_AUTH0_DOMAIN"), path: '/v2/logout', query: request_params.to_query).to_s
+      URI::HTTPS.build(host: ENV.fetch("SHIMBACO_AUTH0_DOMAIN"), path: "/v2/logout", query: request_params.to_query).to_s
     end
   end
 end

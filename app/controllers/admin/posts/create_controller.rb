@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Admin::Posts
-  class CreateController < ActionController::Base
+  class CreateController < ApplicationController
     include Authenticatable
 
     layout "admin"

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Admin::Home
-  class ShowController < ActionController::Base
+  class ShowController < ApplicationController
     include Authenticatable
 
     layout "admin"

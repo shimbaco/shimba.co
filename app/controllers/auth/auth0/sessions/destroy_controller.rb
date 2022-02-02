@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Auth::Auth0::Sessions
-  class DestroyController < ActionController::Base
+  class DestroyController < ApplicationController
     include Authenticatable
 
     def call

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-module Welcome
+module Posts
   class ShowController < ApplicationController
     layout "application"
 
     def call
-      @posts = Post.published.order(published_at: :desc)
+      @post = Post.published.find_by!(slug: params[:post_slug])
     end
   end
 end

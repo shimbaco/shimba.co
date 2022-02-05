@@ -1,1 +1,7 @@
 @import 'bootstrap/scss/bootstrap';
+
+.u-container-narrow {
+  @include make-container();
+
+  max-width: 700px;
+}

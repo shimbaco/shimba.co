@@ -1,5 +1,15 @@
-<header class="container text-center">
-  <h1 class="display-1 fw-bolder">
-    shimba.co
+<header class="text-center u-container-narrow">
+  <h1 class="display-1 fw-bolder mb-0">
+    <%= link_to "shimba.co", root_path, class: "text-body text-decoration-none" %>
   </h1>
+
+  <ul class="justify-content-center nav">
+    <li class="nav-item">
+      <%= link_to "Home", root_path, class: "fw-bold nav-link text-uppercase" %>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to "Projects", project_list_path, class: "fw-bold nav-link text-uppercase" %>
+    </li>
+  </ul>
 </header>

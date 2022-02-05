@@ -1,9 +1,21 @@
-<%= render HeaderComponent.new %>
+<div class="py-3">
+  <%= render HeaderComponent.new %>
 
-<main class="container">
-  <h1>Welcome!</h1>
+  <main class="u-container-narrow">
+    <div class="vstack gap-3">
+      <% @posts.each do |post| %>
+        <div>
+          <div class="text-muted">
+            <%= display_time(post.published_at, format: :long_without_time) %>
+          </div>
 
-  <div data-controller="hello"></div>
-</main>
+          <div>
+            <%= link_to post.title, post_path(post.slug), class: "fw-bold text-decoration-none" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </main>
 
-<%= render FooterComponent.new %>
+  <%= render FooterComponent.new %>
+</div>

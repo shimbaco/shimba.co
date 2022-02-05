@@ -32,7 +32,7 @@ module Authenticatable
     user_signed_in? && current_user.shimbaco?
   end
 
-  def authenticate_user!
+  def authenticate_shimbaco!
     return if shimbaco_signed_in?
 
     redirect_to admin_path

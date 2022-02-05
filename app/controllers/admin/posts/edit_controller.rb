@@ -6,9 +6,9 @@ module Admin::Posts
 
     layout "admin"
 
-    def call
-      authenticate_user!
+    before_action :authenticate_shimbaco!
 
+    def call
       post = Post.find(params[:post_id])
       @post_form = PostForm.new(
         post: post,

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-class PostForm
-  include Shimbaco::Form
-
+class PostForm < ApplicationForm
   attr_accessor :body, :post
   attr_reader :published_at, :slug, :title
 

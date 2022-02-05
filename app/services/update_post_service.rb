@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreatePostService
+class UpdatePostService
   attr_accessor :post
 
   def initialize(form:)
@@ -8,16 +8,16 @@ class CreatePostService
   end
 
   def call
-    post = Post.new(
+    @form.post.attributes = {
       slug: @form.slug,
       title: @form.title,
       body: @form.body,
       published_at: @form.published_at
-    )
+    }
 
-    post.save!
+    @form.post.save!
 
-    self.post = post
+    self.post = @form.post
 
     self
   end

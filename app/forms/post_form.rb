@@ -3,13 +3,13 @@
 class PostForm
   include Shimbaco::Form
 
-  attr_accessor :body
+  attr_accessor :body, :post
   attr_reader :published_at, :slug, :title
 
   validates :slug, presence: true, length: {maximum: 50}
   validates :title, presence: true, length: {maximum: 50}
   validates :body, length: {maximum: 1_048_596}
-  validate :slug_uniqueness
+  validate :slug_uniqueness, if: -> { !persisted? }
 
   def slug=(value)
     @slug = value&.strip
@@ -20,7 +20,14 @@ class PostForm
   end
 
   def published_at=(value)
-    @published_at = value.presence
+    Time.use_zone("Asia/Tokyo") do
+      @published_at = value&.in_time_zone.presence
+    end
+  end
+
+  # @overload
+  def persisted?
+    !post.nil?
   end
 
   private

@@ -1,14 +1,7 @@
-Admin
+<%= render Admin::NavbarComponent.new %>
 
-<% if shimbaco_signed_in? %>
-  <%= button_to "Logout", auth0_path, class: "btn btn-primary", data: { turbo: "false" }, method: :delete %>
-  <%= link_to "New Post", admin_new_post_path %>
-<% elsif user_signed_in? %>
+<div class="container py-3">
   <div class="alert alert-danger">
-    You are not shimbaco.
+    shimbaco専用管理画面です
   </div>
-  <%= button_to "Logout", auth0_path, class: "btn btn-primary", data: { turbo: "false" }, method: :delete %>
-<% else %>
-  <%= button_to "Login", auth0_path, class: "btn btn-primary", data: { turbo: "false" }, method: :post %>
-<% end %>
-
+</div>

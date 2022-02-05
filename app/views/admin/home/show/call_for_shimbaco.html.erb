@@ -1,0 +1,13 @@
+<%= render Admin::NavbarComponent.new %>
+
+<div class="container py-3">
+  <ul class="gap-3 list-unstyled vstack">
+    <% @posts.each do |post| %>
+      <li>
+        <h2>
+          <%= post.title %>
+        </h2>
+      </li>
+    <% end %>
+  </ul>
+</div>

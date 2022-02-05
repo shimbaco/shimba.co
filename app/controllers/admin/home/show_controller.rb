@@ -7,11 +7,11 @@ module Admin::Home
     layout "admin"
 
     def call
-      if shimbaco_signed_in?
-        @posts = Post.order("published_at DESC NULLS FIRST")
-
-        return render("/admin/home/show/call_for_shimbaco")
+      unless shimbaco_signed_in?
+        return render("/admin/home/show/call_for_guest")
       end
+
+      @posts = Post.order("published_at DESC NULLS FIRST")
     end
   end
 end

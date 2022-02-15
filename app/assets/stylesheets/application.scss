@@ -1,5 +1,32 @@
 @import 'bootstrap/scss/bootstrap';
 
+$tw-gray-300: #d1d5db;
+$tw-gray-700: #374151;
+
+.l-application {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .c-header {
+    &__title {
+      color: $tw-gray-700;
+    }
+  }
+
+  .c-main {
+    flex: 1;
+  }
+
+  .c-footer {
+    background-color: $tw-gray-700;
+
+    &__username {
+      color: $tw-gray-300;
+    }
+  }
+}
+
 .u-container-narrow {
   @include make-container();
 

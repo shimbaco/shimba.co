@@ -1,5 +1,7 @@
 @import 'bootstrap/scss/bootstrap';
 
+$color-github: #333333;
+$color-twitter: #1da1f2;
 $tw-gray-300: #d1d5db;
 $tw-gray-700: #374151;
 
@@ -31,4 +33,14 @@ $tw-gray-700: #374151;
   @include make-container();
 
   max-width: 700px;
+}
+
+.c-profile-links {
+  .fa-brands {
+    font-size: 30px;
+  }
+
+  .fa-twitter {
+    color: $color-twitter;
+  }
 }

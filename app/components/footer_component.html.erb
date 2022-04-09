@@ -2,30 +2,30 @@
   <div class="u-container-narrow">
     <%= image_tag "shimbaco.jpg", class: "rounded-circle", size: "100x100" %>
 
-    <h1 class="display-6 fw-bold">
+    <h1 class="display-6 fw-bold mt-2">
       Shimba, Koji
 
-      <div class="h5 c-footer__username">
+      <div class="c-footer__username h5">
         @shimbaco
       </div>
     </h1>
 
-    <div class="justify-content-center row">
-      <div class="col">
+    <div class="c-profile-links justify-content-center my-3 row">
+      <div class="col-auto">
         <%= link_to "https://annict.com/@shimbaco", rel: "noopener", target: "_blank" do %>
           <%= image_tag "annict.jpg", class: "rounded", size: "30x30" %>
         <% end %>
       </div>
 
-      <div class="col">
+      <div class="col-auto">
         <%= link_to "https://twitter.com/shimbaco", rel: "noopener", target: "_blank" do %>
-          <i class="fa-brands fa-twitter-square"></i>
+          <i class="fa-brands fa-twitter"></i>
         <% end %>
       </div>
 
-      <div class="col">
+      <div class="col-auto">
         <%= link_to "https://github.com/shimbaco", rel: "noopener", target: "_blank" do %>
-          <i class="fa-brands fa-github-square"></i>
+          <i class="fa-brands fa-github text-white"></i>
         <% end %>
       </div>
     </div>

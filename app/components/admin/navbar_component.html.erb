@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <%= link_to "Admin", admin_path, class: "navbar-brand" %>
+
+    <ul class="me-auto navbar-nav">
+      <% if helpers.shimbaco_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "New Post", admin_new_post_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <% if helpers.user_signed_in? %>
+          <%= button_to "Logout", auth0_path, class: "btn btn-link nav-link", data: { turbo: "false" }, method: :delete %>
+        <% else %>
+          <%= button_to "Login", auth0_path, class: "btn btn-link nav-link", data: { turbo: "false" }, method: :post %>
+      <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>

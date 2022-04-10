@@ -1,0 +1,54 @@
+<%= form_with model: @post_form, url: form_url do |f| %>
+  <% if f.object.errors.any? %>
+    <div class="alert alert-danger">
+      <div class="alert-heading h4">
+        Error
+      </div>
+
+      <ul>
+        <% f.object.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3 row">
+    <div class="col-4">
+      <%= f.label :title, class: "form-label" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-8">
+      <%= f.label :body, class: "form-label" %>
+      <div
+        class="c-editor rounded"
+        data-controller="editor"
+        data-editor-content-value="<%= f.object.body %>"
+      >
+        <div data-editor-target="slate"></div>
+        <%= f.text_area :body, class: "d-none form-control", data: { "editor-target": "textarea" } %>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-4">
+      <%= f.label :slug, class: "form-label" %>
+      <%= f.text_field :slug, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-4">
+      <%= f.label :published_at, class: "form-label" %>
+      <%= f.datetime_field :published_at, class: "form-control" %>
+    </div>
+  </div>
+
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

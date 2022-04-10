@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:14.1-alpine
+    ports:
+      - 55432:5432
+    volumes:
+      - ./docker/postgres/data:/var/lib/postgres/data:delegated
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust

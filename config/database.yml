@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV.fetch("SHIMBACO_POSTGRES_HOST") %>
+  password: <%= ENV.fetch("SHIMBACO_POSTGRES_PASSWORD") %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: <%= ENV.fetch("SHIMBACO_POSTGRES_PORT") %>
+  username: <%= ENV.fetch("SHIMBACO_POSTGRES_USERNAME") %>
+
+development:
+  <<: *default
+  database: shimbaco_development
+
+test:
+  <<: *default
+  database: shimbaco_test
+
+production:
+  <<: *default
+  database: shimbaco_production

@@ -1,0 +1,35 @@
+<% set_meta_tags(title: "プロジェクト", prefix: false) %>
+
+<div class="l-application pt-3">
+  <%= render HeaderComponent.new %>
+
+  <main class="c-main mt-5 u-container-narrow">
+    <h1 class="fw-bolder mb-0 text-center">
+      プロジェクト
+    </h1>
+
+    <article class="gap-3 py-5 vstack">
+      <% @projects.each do |project| %>
+        <div>
+          <div class="small text-muted">
+            <%= project.term %>
+          </div>
+
+          <h2 class="mt-1">
+            <% if project.url %>
+              <%= link_to project.name, project.url, rel: "noopener", target: "_blank" %>
+            <% else %>
+              <%= project.name %>
+            <% end %>
+          </h2>
+
+          <p>
+            <%= project.description %>
+          </p>
+        </div>
+      <% end %>
+    </article>
+  </main>
+
+  <%= render FooterComponent.new %>
+</div>

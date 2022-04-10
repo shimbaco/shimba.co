@@ -1,7 +1,9 @@
 # shimba.co
 
 ```
-$ git clone git@github.com:shimbaco/shimbaco.git
-$ cd shimbaco
-$ bundle exec jekyll s
+$ git clone git@github.com:shimbaco/shimba.co.git
+$ cd shimba.co
+$ docker compose up
+$ ./bin/dev
+$ ./bin/rails s -p 5000
 ```

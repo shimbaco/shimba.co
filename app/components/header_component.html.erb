@@ -1,0 +1,30 @@
+<header class="c-header text-center u-container-narrow">
+  <div class="display-1 fw-bolder mb-0">
+    <%= link_to "shimba.co", root_path, class: "c-header__title u-reverse-decoration u-text-tw-sky-900" %>
+  </div>
+
+  <ul class="justify-content-center nav">
+    <li class="nav-item">
+      <%= link_to root_path, class: "fw-bold nav-link p-3 text-uppercase u-reverse-decoration" do %>
+        <i class="fa-solid fa-home me-1"></i>
+        Home
+      <% end %>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to project_list_path, class: "fw-bold nav-link p-3 text-uppercase u-reverse-decoration" do %>
+        <i class="fa-solid fa-folder me-1"></i>
+        Projects
+      <% end %>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to feed_path, class: "fw-bold nav-link p-3 text-uppercase u-reverse-decoration" do %>
+        <i class="fa-solid fa-rss me-1"></i>
+        Feed
+      <% end %>
+    </li>
+  </ul>
+
+  <hr class="mb-0 mt-3">
+</header>

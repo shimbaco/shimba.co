@@ -46,21 +46,11 @@ a {
   max-width: 700px;
 }
 
-.c-header {
-  &__title {
-    text-decoration: none;
+.u-reverse-decoration {
+  text-decoration: none;
 
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  .nav-link {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
+  &:hover {
+    text-decoration: underline;
   }
 }
 

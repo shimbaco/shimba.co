@@ -6,7 +6,9 @@ ruby "3.1.0"
 gem "rails", "~> 7.0.0"
 
 gem "bootsnap", require: false
+gem "commonmarker" # Required by github-markup
 gem "cssbundling-rails"
+gem "github-markup"
 gem "jsbundling-rails"
 gem "omniauth-auth0"
 gem "omniauth-rails_csrf_protection"

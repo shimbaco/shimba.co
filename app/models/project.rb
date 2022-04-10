@@ -16,12 +16,12 @@ class Project
         term: "2014年3月〜現在",
         name: "Annict",
         url: "https://annict.com",
-        description: "見たアニメが記録できるWebサービス",
+        description: "見たアニメが記録できるWebサービス"
       ),
       new(
         term: "2011年12月〜2015年ごろ",
         name: "Anoside",
-        description: "匿名つぶやきサービス",
+        description: "匿名つぶやきサービス"
       )
     ]
   end

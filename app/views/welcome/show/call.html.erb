@@ -1,16 +1,16 @@
-<div class="l-application">
+<div class="l-application pt-3">
   <%= render HeaderComponent.new %>
 
-  <main class="c-main u-container-narrow">
+  <main class="c-main mt-3 u-container-narrow">
     <div class="vstack gap-3">
       <% @posts.each do |post| %>
         <div>
-          <div class="text-muted">
+          <div class="small text-muted">
             <%= display_time(post.published_at, format: :long_without_time) %>
           </div>
 
           <div>
-            <%= link_to post.title, post_path(post.slug), class: "fw-bold text-decoration-none" %>
+            <%= link_to post.title, post_path(post.slug), class: "fw-bold" %>
           </div>
         </div>
       <% end %>

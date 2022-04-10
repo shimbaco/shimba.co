@@ -1,20 +1,35 @@
+@import 'variables/tailwind';
+@import 'variables/shimbaco';
+@import 'variables/bootstrap';
+
 @import 'bootstrap/scss/bootstrap';
 
-$color-github: #333333;
-$color-twitter: #1da1f2;
-$tw-gray-300: #d1d5db;
-$tw-gray-700: #374151;
+@import 'utilities/text';
+
+html {
+  font-size: 18px;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 14px;
+  }
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeSpeed;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
 
 .l-application {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-
-  .c-header {
-    &__title {
-      color: $tw-gray-700;
-    }
-  }
 
   .c-main {
     flex: 1;
@@ -22,10 +37,6 @@ $tw-gray-700: #374151;
 
   .c-footer {
     background-color: $tw-gray-700;
-
-    &__username {
-      color: $tw-gray-300;
-    }
   }
 }
 
@@ -35,12 +46,26 @@ $tw-gray-700: #374151;
   max-width: 700px;
 }
 
+.c-header {
+  &__title {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .nav-link {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
 .c-profile-links {
   .fa-brands {
     font-size: 30px;
-  }
-
-  .fa-twitter {
-    color: $color-twitter;
   }
 }

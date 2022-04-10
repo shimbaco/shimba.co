@@ -3,7 +3,9 @@
 
   <main class="c-main mt-5 u-container-narrow">
     <h1 class="fw-bolder mb-0 text-center">
-      <%= @post.title %>
+      <%= link_to post_path(@post.slug), class: "u-reverse-decoration" do %>
+        <%= @post.title %>
+      <% end %>
     </h1>
 
     <div class="fw-bold mt-3 small text-center text-muted">

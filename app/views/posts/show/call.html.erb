@@ -6,6 +6,10 @@
       <%= @post.title %>
     </h1>
 
+    <div class="fw-bold mt-3 small text-center text-muted">
+      <%= display_time(@post.published_at, format: :long_without_time) %>
+    </div>
+
     <article class="py-5">
       <%== render_markdown @post.body %>
     </article>

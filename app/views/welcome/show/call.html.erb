@@ -1,8 +1,12 @@
 <div class="l-application pt-3">
   <%= render HeaderComponent.new %>
 
-  <main class="c-main mt-3 u-container-narrow">
-    <div class="gap-3 pb-5 pt-3 vstack">
+  <main class="c-main mt-5 u-container-narrow">
+    <h1 class="fw-bolder mb-0 text-center">
+      ブログ
+    </h1>
+
+    <article class="gap-3 py-5 vstack">
       <% @posts.each do |post| %>
         <div>
           <div class="small text-muted">
@@ -14,7 +18,7 @@
           </div>
         </div>
       <% end %>
-    </div>
+    </article>
   </main>
 
   <%= render FooterComponent.new %>

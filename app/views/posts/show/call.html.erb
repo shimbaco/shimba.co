@@ -1,8 +1,14 @@
 <div class="l-application pt-3">
   <%= render HeaderComponent.new %>
 
-  <main class="c-main mt-3 u-container-narrow">
-    <%= @post.title %>
+  <main class="c-main mt-5 u-container-narrow">
+    <h1 class="fw-bolder mb-0 text-center">
+      <%= @post.title %>
+    </h1>
+
+    <article class="py-5">
+      <%== render_markdown @post.body %>
+    </article>
   </main>
 
   <%= render FooterComponent.new %>

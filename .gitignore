@@ -1,15 +1,1 @@
 .DS_Store
-
-/.bundle
-/config/master.key
-/docker/postgres/data
-/.env.*.local
-/log/*
-/public/assets
-/storage/*
-/tmp/*
-
-/app/assets/builds/*
-!/app/assets/builds/.keep
-
-/node_modules

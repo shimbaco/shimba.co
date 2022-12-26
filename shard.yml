@@ -1,0 +1,13 @@
+name: your_app
+version: 0.1.0
+
+authors:
+  - Koji Shimba <me@shimba.co>
+
+targets:
+  your_app:
+    main: src/your_app.cr
+
+crystal: 1.6.2
+
+license: MIT

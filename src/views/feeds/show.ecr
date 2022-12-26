@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
+  <title>shimba.co</title>
+  <link href="https://shimba.co" />
+  <link rel="self" type="application/atom+xml" href="https://shimba.co/feed" />
+  <updated><%= posts.first.published_at %></updated>
+  <author>
+    <name>Shimba, Koji (@shimbaco)</name>
+  </author>
+  <id>tag:shimba.co</id>
+
+  <% posts.each do |post| %>
+    <entry>
+      <title><%= post.title %></title>
+      <link href="https://shimba.co/<%= post.slug %>" />
+      <id>tag:<%= post.slug %></id>
+      <updated><%= post.published_at %></updated>
+      <summary><%= post.content_html %></summary>
+    </entry>
+  <% end %>
+</feed>

@@ -1,0 +1,17 @@
+<% content_for "page_title" do %>
+  <%= post.title %> | shimba.co
+<% end %>
+
+<div class="p-post m-auto u-narrow">
+  <h1 class="h4 fw-bold mb-1">
+    <%= post.title %>
+  </h1>
+
+  <div class="fw-bold small text-muted">
+    <%= post.published_on %>
+  </div>
+
+  <div class="p-post__content mt-3">
+    <%= post.content_html %>
+  </div>
+</div>

@@ -1,9 +1,8 @@
 # shimba.co
 
 ```
+$ brew install watchexec
 $ git clone git@github.com:shimbaco/shimba.co.git
 $ cd shimba.co
-$ docker compose up
-$ ./bin/dev
-$ ./bin/rails s -p 5000
+$ watchexec -r -e cr,ecr,css -- crystal run src/app.cr
 ```

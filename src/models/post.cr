@@ -1,3 +1,5 @@
+require "markd"
+
 class Post
   getter slug : String
   getter title : String
@@ -27,7 +29,7 @@ class Post
   end
 
   def content_html
-    Cmark.gfm_to_html(@content)
+    Markd.to_html(@content)
   end
 
   def published_on

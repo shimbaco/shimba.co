@@ -13,9 +13,8 @@ crystal: 1.6.2
 license: MIT
 
 dependencies:
-  cmark:
-      github: amauryt/cr-cmark-gfm
-      version: ~> 0.1.2
+  markd:
+    github: icyleaf/markd
   front_matter:
     github: chris-huxtable/front_matter.cr
   kemal:

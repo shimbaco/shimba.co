@@ -1,4 +1,3 @@
-require "cmark"
 require "front_matter"
 require "kemal"
 require "yaml"

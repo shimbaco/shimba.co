@@ -12,7 +12,12 @@ macro render_view(name, layout = "default")
   {% end %}
 end
 
-get "/" do
+get "/" do |env|
+  if env.request.hostname == "bojovs.com"
+    env.redirect "https://shimba.co", status_code: 301
+    next
+  end
+
   posts = Post.all.first(5)
 
   render_view "home/show"
@@ -76,8 +81,7 @@ end
 ].each do |path|
   get "/#{path}" do |env|
     slug = path.split("/").join("-")
-    # env.redirect("https://shimba.co/#{slug}", status_code: 301)
-    env.redirect("http://shimbaco.test:3000/#{slug}", status_code: 301)
+    env.redirect("https://shimba.co/#{slug}", status_code: 301)
   end
 end
 

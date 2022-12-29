@@ -1,0 +1,12 @@
+FROM crystallang/crystal:1.6.2
+
+ADD . /app
+WORKDIR /app
+
+RUN shards install
+
+RUN crystal build --release src/app.cr
+
+EXPOSE 3000
+
+CMD ./app

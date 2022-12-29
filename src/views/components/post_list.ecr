@@ -1,0 +1,13 @@
+<div class="vstack gap-3">
+  <% posts.each do |post| %>
+    <div>
+      <div class="fw-bold small text-muted">
+        <%= post.published_on %>
+      </div>
+
+      <a href="/<%= post.slug %>">
+        <%= post.title %>
+      </a>
+    </div>
+  <% end %>
+</div>

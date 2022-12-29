@@ -1,0 +1,27 @@
+<% content_for "page_title" do %>
+  shimba.co
+<% end %>
+
+<div class="m-auto u-narrow">
+  <h1 class="h4 fw-bold mb-3">
+    ブログ
+  </h1>
+
+  <%= render "src/views/components/post_list.ecr" %>
+
+  <ul class="list-unstyled mt-5">
+    <li>
+      <a href="/posts">
+        <i class="bi bi-chevron-right"></i>
+        全ての記事
+      </a>
+    </li>
+
+    <li class="mt-2">
+      <a href="/feed" rel="noopener" target="_blank">
+        <i class="bi bi-chevron-right"></i>
+        Atomフィード
+      </a>
+    </li>
+  </ul>
+</div>

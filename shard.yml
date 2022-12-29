@@ -1,0 +1,21 @@
+name: shimbaco
+version: 0.1.0
+
+authors:
+  - Koji Shimba <me@shimba.co>
+
+targets:
+  shimbaco:
+    main: src/app.cr
+
+crystal: 1.6.2
+
+license: MIT
+
+dependencies:
+  markd:
+    github: icyleaf/markd
+  front_matter:
+    github: chris-huxtable/front_matter.cr
+  kemal:
+    github: kemalcr/kemal

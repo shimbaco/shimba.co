@@ -64,4 +64,22 @@ get "/:slug" do |env|
   end
 end
 
+# From bojovs.com
+[
+  "2011/09/09/hello-world",
+  "2011/09/30/vows-zombie",
+  "2011/12/25/anoside",
+  "2012/04/24/ruby-coding-style",
+  "2012/10/13/hello-world",
+  "2012/10/16/rails-coding-style",
+  "2013/11/16/a-whole-new-hello-world",
+  "2014/03/10/introducing-annict"
+].each do |path|
+  get "/#{path}" do |env|
+    slug = path.split("/").join("-")
+    # env.redirect("https://shimba.co/#{slug}", status_code: 301)
+    env.redirect("http://shimbaco.test:3000/#{slug}", status_code: 301)
+  end
+end
+
 Kemal.run

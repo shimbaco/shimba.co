@@ -18,7 +18,7 @@ MastodonはTwitterには無い機能などもあって結構良いんだけど�
 > 正直Mastodonの分散型としての側面にはあまり興味がなく、別のインスタンスの人をフォローするときに面倒みたいなところが少し気になる。つまりJaikuとかWassr復活してほしい🙏
 
 昔は[Jaiku](https://ja.wikipedia.org/wiki/Jaiku)とか[Wassr](https://ja.wikipedia.org/wiki/Wassr)とかがあって、Twitterが落ちたりしていたときは避難先として使っていた。
-そこでもちょっとしたコミュニティが形成されていて、Twitter落ちてるね〜みたいなやり取りをして楽しんでいた。
+そこでも (僕がフォローしている範囲で) ちょっとしたコミュニティが形成されていて、Twitter落ちてるね〜みたいなやり取りをして楽しんでいた。
 最近は僕の観測範囲が狭いこともあるかもしれないが、そういったサービスが見当たらない。いろんな人がオレオレTwitterを作ってくれないかなあと思っていた。
 
 [https://twitter.com/shimbaco/status/1593503745530220544](https://twitter.com/shimbaco/status/1593503745530220544)

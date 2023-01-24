@@ -46,6 +46,10 @@ a:hover {
   margin-top: 1.5rem;
 }
 
+.p-post__content img {
+  max-width: 100%;
+}
+
 .p-post__content blockquote {
   border-left: 4px solid #ddd;
   color: #767676;

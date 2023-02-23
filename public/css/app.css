@@ -67,7 +67,7 @@ a:hover {
 
 .c-footer__github,
 .c-footer__mastodon,
-.c-footer__twitter {
+.c-footer__mastodon {
   font-size: 30px;
 }
 
@@ -77,10 +77,6 @@ a:hover {
 
 .c-footer__mastodon i {
   color: #6364ff;
-}
-
-.c-footer__twitter i {
-  color: #1da1f2;
 }
 
 .u-narrow {

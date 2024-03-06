@@ -67,7 +67,8 @@ a:hover {
 
 .c-footer__bluesky,
 .c-footer__github,
-.c-footer__mastodon {
+.c-footer__mastodon,
+.c-footer__signal {
   font-size: 30px;
 }
 
@@ -81,6 +82,10 @@ a:hover {
 
 .c-footer__mastodon i {
   color: #6364ff;
+}
+
+.c-footer__signal i {
+  color: #3a75f0;
 }
 
 .u-narrow {

@@ -65,10 +65,14 @@ a:hover {
   padding: 0.2em 0.4em;
 }
 
+.c-footer__bluesky,
 .c-footer__github,
-.c-footer__mastodon,
 .c-footer__mastodon {
   font-size: 30px;
+}
+
+.c-footer__bluesky i {
+  color: #0085ff;
 }
 
 .c-footer__github i {

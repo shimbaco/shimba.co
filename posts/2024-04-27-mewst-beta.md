@@ -9,7 +9,7 @@ published_at: 2024-04-27T00:00:00.000Z
 
 作ったり壊したりを繰り返していくうちにサービスの方針が明確になってきたので、一旦今できているものをベータ版という形で公開しようと思います。
 
-https://mewst.com
+[https://mewst.com](https://mewst.com)
 
 Mewstは160文字で今の気持ちや状況を記録できるマイクロブログです。緊張感なくほっとした気持ちで使えるサービスを目指しています。
 
@@ -76,11 +76,11 @@ Mewstではこのように他のサービスとうまいこと連携して、コ
 
 既存のサービスと比べるとできないことだらけで不便かもしれませんが、試していただけたら嬉しいです。
 
-https://mewst.com
+[https://mewst.com](https://mewst.com)
 
 僕のプロフィールページはこちらになります。
 
-https://mewst.com/@shimbaco
+[https://mewst.com/@shimbaco](https://mewst.com/@shimbaco)
 
 Mewstに関することは以下のサービスで発信しています。
 良かったらフォローなどお願いします。
@@ -89,5 +89,10 @@ Mewstに関することは以下のサービスで発信しています。
 - [Bluesky](https://bsky.app/profile/mewst.com)
 - [Discord](https://discord.gg/tNwVpJ4Jfk)
 - [Threads](https://www.threads.net/@mewstcom)
+
+また、ソースコードも公開して開発しています。
+もし興味あればgit cloneなどお願いします。
+
+[https://github.com/mewstcom/mewst](https://github.com/mewstcom/mewst)
 
 居心地の良いマイクロブログになりたいMewstをよろしくお願いします。
